@@ -22,6 +22,13 @@ const GlobalStyle = createGlobalStyle`
   min-height: 100vh;
   }
 
+  // 모바일 웹 환경 구축
+  .mainContainer, .total, .map, .home, .community {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #f2f2f2;
+}
+
 `;
 
 export default GlobalStyle;
