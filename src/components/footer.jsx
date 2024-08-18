@@ -62,25 +62,23 @@ function Footer() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname.startsWith("/home")) {
-      setActiveNav(1);
-    } else if (location.pathname.startsWith("/map")) {
+    if (location.pathname.startsWith("/map")) {
       setActiveNav(2);
     } else if (location.pathname.startsWith("/community")) {
       setActiveNav(3);
     } else if (location.pathname.startsWith("/total")) {
       setActiveNav(4);
+    } else if (location.pathname.startsWith("/")) {
+      setActiveNav(1);
     }
   }, [location]);
 
   return (
     <Container>
-      <Link to="/home" className="nav-link">
+      <Link to="/" className="nav-link">
         <NavLink
           className={
-            location.pathname === "/home"
-              ? "nav-item active-nav-item"
-              : "nav-item"
+            location.pathname === "/" ? "nav-item active-nav-item" : "nav-item"
           }
         >
           <IconTxtWrapper>
@@ -111,7 +109,6 @@ function Footer() {
               : "nav-item"
           }
         >
-          {" "}
           <IconTxtWrapper>
             {activeNav === 3 ? (
               <CommunityIcn></CommunityIcn>

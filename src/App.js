@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/community" element={<Community></Community>} />
         <Route path="/map" element={<Map />} />
         <Route path="/total" element={<Total />} />
