@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Footer from "../../components/footer";
+import Header from "./components/Header";
 
 const Container = styled.div`
   height: 100dvh;
@@ -9,6 +10,7 @@ const Container = styled.div`
 const Home = () => {
   return (
     <Container className="home">
+      <Header></Header>
       <div>Home Page</div>
       <Footer></Footer>
     </Container>
