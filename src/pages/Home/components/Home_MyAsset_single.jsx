@@ -18,7 +18,24 @@ const AssetTitleWrapper = styled.div`
   gap: 0.25rem;
 `;
 
-// props: type (home, company, car) , assetTitle(자산명), rain(강수량), grade(1,3,4),dangerGrade(danger, warning, safe)
+const iconMap = {
+  Home: HomeIcn,
+  Company: CompanyIcn,
+  Car: CarIcn,
+};
+
+const Logo = ({ type }) => {
+  console.log(type);
+  const IconComponent = iconMap[type];
+
+  if (!IconComponent) {
+    return null;
+  }
+
+  return <IconComponent />;
+};
+
+// props: type (Home, Company, Car) , assetTitle(자산명), rain(강수량), grade(1,3,4),dangerGrade(danger, warning, safe)
 const Home_MyAsset_single = ({
   type,
   assetTitle,
@@ -28,7 +45,10 @@ const Home_MyAsset_single = ({
 }) => {
   return (
     <Container>
-      <AssetTitleWrapper>우리집</AssetTitleWrapper>
+      <AssetTitleWrapper>
+        <Logo type={type}></Logo>
+        {assetTitle}
+      </AssetTitleWrapper>
       <Common_GradeTotal
         rain={rain}
         grade={grade}

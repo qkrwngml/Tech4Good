@@ -9,8 +9,7 @@ const DangerGradeWrapper = styled.div`
 `;
 
 const WeatherSpan = styled.span`
-  color: rgba(255, 255, 255, 0.9);
-
+  color: #70737c;
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.4375rem; /* 164.286% */
@@ -19,12 +18,20 @@ const WeatherSpan = styled.span`
 
 // rain(강수량), grade(1,3,4),dangerGrade(danger, warning, safe)
 const Common_GradeTotal = ({ rain, grade, dangerGrade }) => {
+  console.log(rain, grade, dangerGrade);
   return (
     <DangerGradeWrapper>
-      <Danger_rain></Danger_rain>
-      <WeatherSpan>{rain}m</WeatherSpan>
-      <WeatherSpan>|</WeatherSpan>
-      <WeatherSpan>{grade}등급</WeatherSpan>
+      {rain != undefined ? (
+        <>
+          {" "}
+          <Danger_rain></Danger_rain>
+          <WeatherSpan>{rain}m</WeatherSpan>
+          <WeatherSpan>|</WeatherSpan>
+          <WeatherSpan>{grade}등급</WeatherSpan>
+        </>
+      ) : (
+        <></>
+      )}
       <Common_DangerGrade state={dangerGrade}></Common_DangerGrade>
     </DangerGradeWrapper>
   );

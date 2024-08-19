@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as ManageIcn } from "../assets/ManageIcn.svg";
-import Home_MyAsset_single from "./Home_MyAsset_single";
+import Common_Insurance from "./Common_Insurance";
 
 const Container = styled.div`
   display: flex;
@@ -11,6 +11,8 @@ const Container = styled.div`
 
   border-radius: 0.875rem;
   background-color: #ffffff;
+
+  cursor: pointer;
 `;
 
 const Horizon = styled.div`
@@ -23,7 +25,7 @@ const Horizon = styled.div`
   padding: 0 1.25rem;
 `;
 
-const AssetManage = styled.button`
+const InsuranceManage = styled.button`
   display: flex;
   padding: 0.875rem 1rem;
   justify-content: center;
@@ -36,7 +38,7 @@ const AssetManage = styled.button`
   border-radius: 0rem 0rem 0.75rem 0.75rem;
 `;
 
-const AssetManageTitle = styled.div`
+const InsuranceManageTitle = styled.div`
   color: #70737c;
   text-align: center;
 
@@ -46,51 +48,42 @@ const AssetManageTitle = styled.div`
   letter-spacing: -0.00875rem;
 `;
 
-const dummyAsset = [
-  {
-    type: "Home",
-    assetTitle: "우리집",
-    rain: 0.22,
-    grade: 1,
-    dangerGrade: "safe",
-  },
-  {
-    type: "Company",
-    assetTitle: "사과 농장",
-    rain: 4.36,
-    grade: 4,
-    dangerGrade: "danger",
-  },
-  {
-    type: "Company",
-    assetTitle: "포장 공장",
-    rain: 1.36,
-    grade: 3,
-    dangerGrade: "warning",
-  },
-  {
-    type: "Car",
-    assetTitle: "내 차",
-    dangerGrade: "safe",
-  },
+const InsuranceItem = styled.div`
+  display: flex;
+  padding: 1.25rem;
+  align-items: center;
+  gap: 0.875rem;
+  align-self: stretch;
+`;
+
+const homeInsuranceDummyData = [
+  { title: "Hana", content: "하나 손해 보험" },
+  { title: "KB", content: "KB 손해 보험" },
+  { title: "DB", content: "DB 손해 보험" },
 ];
 
-const Home_MyAsset = () => {
+const Home_InsuranceList = ({ filterTitle }) => {
   return (
-    <Container>
-      {dummyAsset.map((item) => (
+    <Container
+      onClick={() => {
+        alert("준비 중인 서비스입니다.");
+      }}
+    >
+      {homeInsuranceDummyData.map((item) => (
         <>
-          <Home_MyAsset_single {...item}></Home_MyAsset_single>
+          <Common_Insurance
+            {...item}
+            filterTitle={filterTitle}
+          ></Common_Insurance>
           <Horizon></Horizon>
         </>
       ))}
-      <AssetManage>
-        <AssetManageTitle>내 집 · 회사 · 자동차 관리하기</AssetManageTitle>
+      <InsuranceManage>
+        <InsuranceManageTitle>보험 상품 더보기</InsuranceManageTitle>
         <ManageIcn></ManageIcn>
-      </AssetManage>
+      </InsuranceManage>
     </Container>
   );
-  // 내 자산 배열을 map 하여 Home_MyAsset_single 컴포넌트를 생성
 };
 
-export default Home_MyAsset;
+export default Home_InsuranceList;

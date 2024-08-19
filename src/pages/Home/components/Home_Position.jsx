@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import css from "styled-components";
+import DangerGrade from "./Common_DangerGrade";
 import { ReactComponent as Weather_sun } from "../assets/Weather_sun.svg";
 import { ReactComponent as Degree } from "../assets/Degree.svg";
-import Common_GradeTotal from "./Common_GradeTotal";
+import { ReactComponent as Danger_rain } from "../assets/Danger_rain.svg";
 
 const PositionContainer = styled.div`
   display: flex;
@@ -59,6 +60,12 @@ const WeatherContent = styled.div`
   gap: 0.5rem;
 `;
 
+const DangerGradeWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`;
+
 const WeatherSpan = styled.span`
   color: rgba(255, 255, 255, 0.9);
 
@@ -94,11 +101,13 @@ const Home_Position = () => {
           <WeatherSpan>|</WeatherSpan>
           <WeatherSpan>맑음</WeatherSpan>
         </WeatherContent>
-        <Common_GradeTotal
-          rain={0.22}
-          grade={1}
-          dangerGrade={"safe"}
-        ></Common_GradeTotal>
+        <DangerGradeWrapper>
+          <Danger_rain></Danger_rain>
+          <WeatherSpan>0.22m</WeatherSpan>
+          <WeatherSpan>|</WeatherSpan>
+          <WeatherSpan>1등급</WeatherSpan>
+          <DangerGrade state={"safe"}></DangerGrade>
+        </DangerGradeWrapper>
       </MyWeather>
     </PositionContainer>
   );
