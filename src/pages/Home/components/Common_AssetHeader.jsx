@@ -14,6 +14,7 @@ const BackBtnWrapper = styled.button`
   cursor: pointer;
   border: none;
   outline: none;
+  background-color: transparent;
 `;
 
 const Title = styled.div`

@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { ReactComponent as ManageIcn } from "../assets/ManageIcn.svg";
 import Home_MyAsset_single from "./Home_MyAsset_single";
 import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { useEffect } from "react";
+import { assetState } from "../../../Recoil";
 
 const Container = styled.div`
   display: flex;
@@ -47,40 +50,14 @@ const AssetManageTitle = styled.div`
   letter-spacing: -0.00875rem;
 `;
 
-const dummyAsset = [
-  {
-    type: "Home",
-    assetTitle: "우리집",
-    rain: 0.22,
-    grade: 1,
-    dangerGrade: "safe",
-  },
-  {
-    type: "Company",
-    assetTitle: "사과 농장",
-    rain: 4.36,
-    grade: 4,
-    dangerGrade: "danger",
-  },
-  {
-    type: "Company",
-    assetTitle: "포장 공장",
-    rain: 1.36,
-    grade: 3,
-    dangerGrade: "warning",
-  },
-  {
-    type: "Car",
-    assetTitle: "내 차",
-    dangerGrade: "safe",
-  },
-];
-
 const Home_MyAsset = () => {
   const navigate = useNavigate();
+
+  const assetData = useRecoilValue(assetState);
+
   return (
     <Container>
-      {dummyAsset.map((item) => (
+      {assetData.map((item) => (
         <>
           <Home_MyAsset_single {...item}></Home_MyAsset_single>
           <Horizon></Horizon>

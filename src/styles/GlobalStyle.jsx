@@ -26,7 +26,6 @@ const GlobalStyle = createGlobalStyle`
   .mainContainer, .total, .map, .home, .community, .assetDetail {
   margin-left: auto;
   margin-right: auto;
-  background-color: #f2f2f2;
 }
 
 `;
