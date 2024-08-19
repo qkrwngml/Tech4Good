@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as ManageIcn } from "../assets/ManageIcn.svg";
 import Home_MyAsset_single from "./Home_MyAsset_single";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -76,6 +77,7 @@ const dummyAsset = [
 ];
 
 const Home_MyAsset = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       {dummyAsset.map((item) => (
@@ -84,7 +86,11 @@ const Home_MyAsset = () => {
           <Horizon></Horizon>
         </>
       ))}
-      <AssetManage>
+      <AssetManage
+        onClick={() => {
+          navigate("/asset_Detail");
+        }}
+      >
         <AssetManageTitle>내 집 · 회사 · 자동차 관리하기</AssetManageTitle>
         <ManageIcn></ManageIcn>
       </AssetManage>

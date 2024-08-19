@@ -1,11 +1,11 @@
 import { React } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Main from "./pages/main";
-import HomePage from "./pages/Home/HomePage";
+import HomePage from "./pages/Home/pages/HomePage";
 import Community from "./pages/Community/Community";
 import Map from "./pages/Map/MapPage";
 import Total from "./pages/Total/Total";
+import AssetDetailPage from "./pages/Home/pages/AssetDetailPage";
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
         <Route path="/community" element={<Community></Community>} />
         <Route path="/map" element={<Map />} />
         <Route path="/total" element={<Total />} />
+        <Route path="/asset_Detail" element={<AssetDetailPage />} />
       </Routes>
     </BrowserRouter>
   );
