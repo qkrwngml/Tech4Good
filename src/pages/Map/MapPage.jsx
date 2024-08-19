@@ -37,8 +37,8 @@ const MapPage = () => {
           id="map"
           center={{
             // 지도의 중심좌표
-            lat: 33.450701,
-            lng: 126.570667,
+            lat: 37.26680548649544,
+            lng: 127.39948824950558,
           }}
           style={mapSize}
           level={3} // 지도의 확대 레벨
