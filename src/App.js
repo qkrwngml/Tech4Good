@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./pages/main";
 import Home from "./pages/Home/Home";
 import Community from "./pages/Community/Community";
-import Map from "./pages/Map/Map";
+import Map from "./pages/Map/MapPage";
 import Total from "./pages/Total/Total";
 
 function App() {
