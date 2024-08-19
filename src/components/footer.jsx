@@ -15,7 +15,7 @@ const Container = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 11.2vh;
+  height: 11.2dvh;
   background-color: #fff;
   padding: 1px 0px;
   width: calc(100dvh * 0.48);
