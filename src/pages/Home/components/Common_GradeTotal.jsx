@@ -18,7 +18,6 @@ const WeatherSpan = styled.span`
 
 // rain(강수량), grade(1,3,4),dangerGrade(danger, warning, safe)
 const Common_GradeTotal = ({ rain, grade, dangerGrade }) => {
-  console.log(rain, grade, dangerGrade);
   return (
     <DangerGradeWrapper>
       {rain != undefined ? (

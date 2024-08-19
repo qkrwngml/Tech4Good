@@ -25,7 +25,6 @@ const iconMap = {
 };
 
 const Logo = ({ type }) => {
-  console.log(type);
   const IconComponent = iconMap[type];
 
   if (!IconComponent) {
