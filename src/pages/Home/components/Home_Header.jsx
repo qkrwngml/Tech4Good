@@ -9,6 +9,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  align-self: stretch;
 `;
 
 const SvgContainer = styled.div`
@@ -20,6 +21,7 @@ const AlertContainer = styled.div`
   width: 15%;
   padding: 1rem;
 `;
+
 const Header = () => {
   return (
     <Container>
