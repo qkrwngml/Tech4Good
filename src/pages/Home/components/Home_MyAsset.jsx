@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as ManageIcn } from "../assets/ManageIcn.svg";
-import Home_MyAsset_single from "./Home_MyAsset_single";
+import Common_MyAsset_single from "./Common_MyAsset_single";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { useEffect } from "react";
@@ -15,6 +15,14 @@ const Container = styled.div`
 
   border-radius: 0.875rem;
   background-color: #ffffff;
+`;
+
+const AssetContainer = styled.div`
+  display: flex;
+  padding: 1.25rem;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
 `;
 
 const Horizon = styled.div`
@@ -59,7 +67,9 @@ const Home_MyAsset = () => {
     <Container>
       {assetData.map((item) => (
         <>
-          <Home_MyAsset_single {...item}></Home_MyAsset_single>
+          <AssetContainer>
+            <Common_MyAsset_single {...item}></Common_MyAsset_single>
+          </AssetContainer>
           <Horizon></Horizon>
         </>
       ))}
@@ -73,7 +83,7 @@ const Home_MyAsset = () => {
       </AssetManage>
     </Container>
   );
-  // 내 자산 배열을 map 하여 Home_MyAsset_single 컴포넌트를 생성
+  // 내 자산 배열을 map 하여 Common_MyAsset_single 컴포넌트를 생성
 };
 
 export default Home_MyAsset;

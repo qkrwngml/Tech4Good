@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import Common_AssetHeader from "../components/Common_AssetHeader";
+import AssetDetail_Item from "../components/AssetDetail_Item";
+import { useRecoilState } from "recoil";
+import { assetState } from "../../../Recoil";
 
 const Container = styled.div`
   width: calc(100dvh * 0.48);
@@ -9,8 +12,29 @@ const Container = styled.div`
   overflow-y: scroll;
 `;
 
+const MainWrapper = styled.div`
+  padding: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const AssetsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: stretch;
+  gap: 0.75rem;
+
+  width: 100%;
+`;
+
 const AssetDetailPage = () => {
   const handleEdit = () => {};
+
+  const [assets, setAsset] = useRecoilState(assetState);
 
   return (
     <Container className="assetDetail">
@@ -18,6 +42,14 @@ const AssetDetailPage = () => {
         header_title={"내 집  · 회사 ·  자동차"}
         editOnClick={handleEdit}
       ></Common_AssetHeader>
+      <MainWrapper>
+        {/* 자산 나열 */}
+        <AssetsWrapper>
+          {assets.map((item) => (
+            <AssetDetail_Item {...item}></AssetDetail_Item>
+          ))}
+        </AssetsWrapper>
+      </MainWrapper>
     </Container>
   );
 };
