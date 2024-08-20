@@ -48,6 +48,7 @@ const AssetDetailPage = () => {
         editOnClick={() => {
           handleEdit();
         }}
+        backLink={"/"}
       ></Common_AssetHeader>
       <MainWrapper>
         {/* 자산 나열 */}

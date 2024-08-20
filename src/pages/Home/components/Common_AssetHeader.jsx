@@ -3,6 +3,7 @@ import { ReactComponent as BackBtn } from "../assets/Back.svg";
 import { useNavigate } from "react-router-dom";
 import { editState } from "../../../Recoil";
 import { useRecoilValue } from "recoil";
+import { isVisible } from "@testing-library/user-event/dist/utils";
 
 const Container = styled.div`
   display: flex;
@@ -10,6 +11,13 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
+
+  ${(props) =>
+    props.editOnClick === undefined
+      ? css`
+          border-bottom: 1px solid #e1e2e4;
+        `
+      : css``}
 `;
 
 const BackBtnWrapper = styled.button`
@@ -38,20 +46,27 @@ const EditBtn = styled.div`
   letter-spacing: -0.00875rem;
 
   cursor: pointer;
+
+  ${(props) =>
+    props.editOnClick === undefined
+      ? css`
+          visibility: hidden;
+        `
+      : css``}
 `;
 
-const Common_AssetHeader = ({ header_title, editOnClick }) => {
+const Common_AssetHeader = ({ header_title, editOnClick, backLink }) => {
   const navigate = useNavigate();
 
   const edit = useRecoilValue(editState);
   return (
-    <Container>
-      <BackBtnWrapper onClick={() => navigate("/")}>
+    <Container editOnClick={editOnClick}>
+      <BackBtnWrapper onClick={() => navigate(`${backLink}`)}>
         <BackBtn />
       </BackBtnWrapper>
       <Title>{header_title}</Title>
-      <EditBtn onClick={() => editOnClick()}>
-        {edit === true ? "완료" : "편집"}
+      <EditBtn editOnClick={editOnClick} onClick={() => editOnClick()}>
+        {editOnClick != undefined ? (edit === true ? "완료" : "편집") : "공백"}
       </EditBtn>
     </Container>
   );

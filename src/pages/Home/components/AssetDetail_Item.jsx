@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Common_MyAsset_single from "../components/Common_MyAsset_single";
 import { editState } from "../../../Recoil";
 import { useRecoilValue } from "recoil";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -103,13 +104,17 @@ const AssetDetail_Item = (props) => {
 
   const edit = useRecoilValue(editState);
 
+  const navigate = useNavigate();
+
   return (
     <Container>
       <GradeTotalWrapper>
         <Common_MyAsset_single {...props}></Common_MyAsset_single>
       </GradeTotalWrapper>
       <InfoWrapper>
-        <AddressWrapper>{props.address}</AddressWrapper>
+        <AddressWrapper>
+          {props.address} {props.addressDetail1} {props.addressDetail2}
+        </AddressWrapper>
         {props.type != "Car" ? <Horizon></Horizon> : <></>}
         <NumbersWrapper>
           {numbers != null ? (
@@ -125,7 +130,9 @@ const AssetDetail_Item = (props) => {
       </InfoWrapper>
       {edit === true ? (
         <BtnsWrapper>
-          <Btn>수정</Btn>
+          <Btn onClick={() => navigate(`/asset_Detail/edit/${props.assetkey}`)}>
+            수정
+          </Btn>
           <Btn>삭제</Btn>
         </BtnsWrapper>
       ) : (
