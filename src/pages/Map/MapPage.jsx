@@ -9,6 +9,7 @@ import fireMarker from "./assets/fireMarker.svg";
 import policeMarker from "./assets/policeMarker.svg";
 import shelterMarker from "./assets/shelterMarker.svg";
 import housingMarker from "./assets/housingMarker.svg";
+import myLocation from "./assets/myLocation.svg";
 
 import Footer from "../../components/footer";
 import Filter from "./components/Filter";
@@ -60,8 +61,8 @@ const MapPage = () => {
   };
 
   const [location, setLocation] = useState({
-    lat: 37.266929899999845,
-    lng: 127.39517975393233,
+    lat: 37.26697094518317,
+    lng: 127.39932246136938,
   });
 
   const mapRef = useRef(null);
@@ -229,8 +230,8 @@ const MapPage = () => {
   );
   const handleNowLocationClick = () => {
     const currentPosition = {
-      lat: 37.266929899999845,
-      lng: 127.39517975393233,
+      lat: 37.26697094518317,
+      lng: 127.39932246136938,
     };
     setLocation(currentPosition);
     console.log("현위치", location);
@@ -254,6 +255,16 @@ const MapPage = () => {
           onCenterChanged={updateCenterWhenMapMoved}
         >
           {renderMarkers()}
+
+          <MapMarker
+            position={{ lat: 37.26697094518317, lng: 127.39932246136938 }}
+            image={{
+              src: myLocation,
+              size: {
+                width: "131px",
+              },
+            }}
+          />
         </Map>
         <NowLocation onClick={handleNowLocationClick} />
       </MapContainer>
