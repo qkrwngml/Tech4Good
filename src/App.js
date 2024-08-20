@@ -2,13 +2,16 @@ import { React } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import HomePage from "./pages/Home/pages/HomePage";
-import Community from "./pages/Community/Community";
+import CommunityPage from "./pages/Community/pages/CommunityPage";
 import Map from "./pages/Map/MapPage";
 import Total from "./pages/Total/Total";
 import AssetDetailPage from "./pages/Home/pages/AssetDetailPage";
 import { RecoilRoot } from "recoil";
 import AssetEditPage from "./pages/Home/pages/AssetEditPage";
 import AssetAddNumberPage from "./pages/Home/pages/AssetAddNumberPage";
+import GovernPage from "./pages/Community/pages/GovernPage";
+import GroupPage from "./pages/Community/pages/GroupPage";
+import NeighborPage from "./pages/Community/pages/NeighborPage";
 
 function App() {
   return (
@@ -16,7 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/community" element={<Community></Community>} />
+          <Route path="/community" element={<CommunityPage></CommunityPage>} />
           <Route path="/map" element={<Map />} />
           <Route path="/total" element={<Total />} />
           <Route path="/asset_Detail" element={<AssetDetailPage />} />
@@ -28,6 +31,9 @@ function App() {
             path="/asset_Detail/edit/number/:assetKey"
             element={<AssetAddNumberPage></AssetAddNumberPage>}
           />
+          <Route path="/community/govern" element={<GovernPage />} />
+          <Route path="/community/group" element={<GroupPage />} />
+          <Route path="/community/neighbor" element={<NeighborPage />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

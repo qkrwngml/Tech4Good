@@ -321,7 +321,10 @@ const AssetEditPage = () => {
         ></Common_AssetHeader>
         {/* 장소 수정 Container */}
         <AddressContainer>
-          <MapWrapper src={MapExample}></MapWrapper>
+          <MapWrapper
+            src={MapExample}
+            onClick={() => alert("준비 중인 서비스입니다.")}
+          ></MapWrapper>
           <AddressDetailWrapper>
             <AddressDetailTextWrapper>
               <AddressDetailText value="">
