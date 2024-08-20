@@ -7,7 +7,8 @@ import NeighborSmall from "../components/NeighborSmall";
 import CommonSectionHeader from "../components/CommonSectionHeader";
 
 const Container = styled.div`
-  width: calc(100dvh * 0.48);
+  max-width: calc(100dvh * 0.48);
+  width: 100dvw;
 
   overflow-y: scroll;
 

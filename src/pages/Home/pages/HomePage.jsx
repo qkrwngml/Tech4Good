@@ -12,7 +12,8 @@ import { useCallback } from "react";
 import Home_InsuranceList from "../components/Home_InsuranceList";
 
 const Container = styled.div`
-  width: calc(100dvh * 0.48);
+  max-width: calc(100dvh * 0.48);
+  width: 100dvw;
   height: 88.8dvh;
   background-color: #eff1f7;
 
