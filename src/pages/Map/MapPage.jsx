@@ -10,18 +10,19 @@ import policeMarker from "./assets/policeMarker.svg";
 import shelterMarker from "./assets/shelterMarker.svg";
 import housingMarker from "./assets/housingMarker.svg";
 import myLocation from "./assets/myLocation.svg";
+import level from "./assets/level.svg";
 
 import Footer from "../../components/footer";
 import Filter from "./components/Filter";
 import NowLocation from "./components/NowLocation";
 
 const Container = styled.div`
-  height: 100dvh;
   width: calc(100dvh * 0.48);
   margin: 0 auto;
 `;
 
 const MapContainer = styled.div`
+  height: 87.8dvh;
   width: 100%;
   position: relative;
 `;
@@ -52,6 +53,15 @@ const Search = styled.div`
     line-height: 23px;
     letter-spacing: -0.14px;
   }
+`;
+
+const Level = styled.div`
+  width: 90dvw;
+  position: absolute;
+  bottom: -6vh;
+  z-index: 2;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const MapPage = () => {
@@ -121,7 +131,7 @@ const MapPage = () => {
 
   const [mapSize, setMapSize] = useState({
     width: "100%",
-    height: "88.8dvh",
+    height: "87.8dvh",
   });
 
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -267,6 +277,9 @@ const MapPage = () => {
           />
         </Map>
         <NowLocation onClick={handleNowLocationClick} />
+        <Level>
+          <img src={level} alt="level" />
+        </Level>
       </MapContainer>
       <Footer navigateTo={navigateTo} />
     </Container>
