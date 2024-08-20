@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { ReactComponent as ManageIcn } from "../assets/ManageIcn.svg";
-import Home_MyAsset_single from "./Home_MyAsset_single";
+import Common_MyAsset_single from "./Common_MyAsset_single";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { useEffect } from "react";
+import { assetState } from "../../../Recoil";
 
 const Container = styled.div`
   display: flex;
@@ -11,6 +15,14 @@ const Container = styled.div`
 
   border-radius: 0.875rem;
   background-color: #ffffff;
+`;
+
+const AssetContainer = styled.div`
+  display: flex;
+  padding: 1.25rem;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
 `;
 
 const Horizon = styled.div`
@@ -46,51 +58,32 @@ const AssetManageTitle = styled.div`
   letter-spacing: -0.00875rem;
 `;
 
-const dummyAsset = [
-  {
-    type: "Home",
-    assetTitle: "우리집",
-    rain: 0.22,
-    grade: 1,
-    dangerGrade: "safe",
-  },
-  {
-    type: "Company",
-    assetTitle: "사과 농장",
-    rain: 4.36,
-    grade: 4,
-    dangerGrade: "danger",
-  },
-  {
-    type: "Company",
-    assetTitle: "포장 공장",
-    rain: 1.36,
-    grade: 3,
-    dangerGrade: "warning",
-  },
-  {
-    type: "Car",
-    assetTitle: "내 차",
-    dangerGrade: "safe",
-  },
-];
-
 const Home_MyAsset = () => {
+  const navigate = useNavigate();
+
+  const assetData = useRecoilValue(assetState);
+
   return (
     <Container>
-      {dummyAsset.map((item) => (
+      {assetData.map((item) => (
         <>
-          <Home_MyAsset_single {...item}></Home_MyAsset_single>
+          <AssetContainer>
+            <Common_MyAsset_single {...item}></Common_MyAsset_single>
+          </AssetContainer>
           <Horizon></Horizon>
         </>
       ))}
-      <AssetManage>
+      <AssetManage
+        onClick={() => {
+          navigate("/asset_Detail");
+        }}
+      >
         <AssetManageTitle>내 집 · 회사 · 자동차 관리하기</AssetManageTitle>
         <ManageIcn></ManageIcn>
       </AssetManage>
     </Container>
   );
-  // 내 자산 배열을 map 하여 Home_MyAsset_single 컴포넌트를 생성
+  // 내 자산 배열을 map 하여 Common_MyAsset_single 컴포넌트를 생성
 };
 
 export default Home_MyAsset;

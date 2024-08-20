@@ -23,10 +23,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   // 모바일 웹 환경 구축
-  .mainContainer, .total, .map, .home, .community {
+  .mainContainer, .total, .map, .home, .community, .assetDetail, .assetEdit, .assetAddNumber {
   margin-left: auto;
   margin-right: auto;
-  background-color: #f2f2f2;
 }
 
 `;

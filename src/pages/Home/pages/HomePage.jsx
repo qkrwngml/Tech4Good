@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import Footer from "../../components/footer";
-import Header from "./components/Home_Header";
-import Home_Position from "./components/Home_Position";
-import Home_Emergency from "./components/Home_Emergency";
-import Home_MyAsset from "./components/Home_MyAsset";
-import { ReactComponent as BagIcn } from "./assets/RegBtn_bag.svg";
-import { ReactComponent as GoIcn } from "./assets/RegBtn_go.svg";
+import Footer from "../../../components/footer";
+import Home_Header from "../components/Home_Header";
+import Home_Position from "../components/Home_Position";
+import Home_Emergency from "../components/Home_Emergency";
+import Home_MyAsset from "../components/Home_MyAsset";
+import { ReactComponent as BagIcn } from "../assets/RegBtn_bag.svg";
+import { ReactComponent as GoIcn } from "../assets/RegBtn_go.svg";
 import { useEffect, useState } from "react";
-import Common_Filter from "./components/Common_Filter";
+import Common_Filter from "../components/Common_Filter";
 import { useCallback } from "react";
-import Home_InsuranceList from "./components/Home_InsuranceList";
+import Home_InsuranceList from "../components/Home_InsuranceList";
 
 const Container = styled.div`
   width: calc(100dvh * 0.48);
@@ -151,7 +151,7 @@ const HomePage = () => {
   return (
     <>
       <Container className="home">
-        <Header></Header>
+        <Home_Header></Home_Header>
         <ImpContainer>
           {/* 내 현 위치와 날씨, 위험 등급 */}
           <Home_Position></Home_Position>

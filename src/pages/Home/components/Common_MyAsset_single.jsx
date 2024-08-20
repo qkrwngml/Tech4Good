@@ -4,14 +4,6 @@ import { ReactComponent as CompanyIcn } from "../assets/Asset_Company.svg";
 import { ReactComponent as CarIcn } from "../assets/Asset_Car.svg";
 import Common_GradeTotal from "./Common_GradeTotal";
 
-const Container = styled.div`
-  display: flex;
-  padding: 1.25rem;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
-`;
-
 const AssetTitleWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -35,7 +27,7 @@ const Logo = ({ type }) => {
 };
 
 // props: type (Home, Company, Car) , assetTitle(자산명), rain(강수량), grade(1,3,4),dangerGrade(danger, warning, safe)
-const Home_MyAsset_single = ({
+const Common_MyAsset_single = ({
   type,
   assetTitle,
   rain,
@@ -43,7 +35,7 @@ const Home_MyAsset_single = ({
   dangerGrade,
 }) => {
   return (
-    <Container>
+    <>
       <AssetTitleWrapper>
         <Logo type={type}></Logo>
         {assetTitle}
@@ -53,8 +45,8 @@ const Home_MyAsset_single = ({
         grade={grade}
         dangerGrade={dangerGrade}
       ></Common_GradeTotal>
-    </Container>
+    </>
   );
 };
 
-export default Home_MyAsset_single;
+export default Common_MyAsset_single;
