@@ -10,7 +10,6 @@ import { RecoilRoot } from "recoil";
 import AssetEditPage from "./pages/Home/pages/AssetEditPage";
 import AssetAddNumberPage from "./pages/Home/pages/AssetAddNumberPage";
 import GovernPage from "./pages/Community/pages/GovernPage";
-import GroupPage from "./pages/Community/pages/GroupPage";
 import NeighborPage from "./pages/Community/pages/NeighborPage";
 
 function App() {
@@ -31,9 +30,8 @@ function App() {
             path="/asset_Detail/edit/number/:assetKey"
             element={<AssetAddNumberPage></AssetAddNumberPage>}
           />
-          <Route path="/community/govern" element={<GovernPage />} />
-          <Route path="/community/group" element={<GroupPage />} />
-          <Route path="/community/neighbor" element={<NeighborPage />} />
+          <Route path="/community/Govern" element={<GovernPage />} />
+          <Route path="/community/Neighbor" element={<NeighborPage />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

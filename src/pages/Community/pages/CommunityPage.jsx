@@ -4,9 +4,9 @@ import Common_header from "../components/Common_header";
 import GovernSmall from "../components/GovernSmall";
 import GroupSmall from "../components/GroupSmall";
 import NeighborSmall from "../components/NeighborSmall";
+import CommonSectionHeader from "../components/CommonSectionHeader";
 
 const Container = styled.div`
-  height: 100dvh;
   width: calc(100dvh * 0.48);
 
   overflow-y: scroll;
@@ -18,17 +18,17 @@ const Container = styled.div`
 
 const Horizon = styled.div`
   width: 100%;
-  height: 0.875rem;
+  height: 0.8rem;
   align-self: stretch;
 
-  background-color: #e5e6ef;
+  background-color: #f4f4f5;
 `;
 
 const CommunityPage = () => {
   return (
     <Container className="community">
       {/* 공통 컴포-  헤더 */}
-      <Common_header />
+      <Common_header></Common_header>
       {/* 정부 공지 */}
       <GovernSmall />
       {/* horizon */}
@@ -40,6 +40,7 @@ const CommunityPage = () => {
       {/* 동네 소통 */}
       <NeighborSmall />
       {/* horizon */}
+      <Horizon />
       <Footer></Footer>
     </Container>
   );
