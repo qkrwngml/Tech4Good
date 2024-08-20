@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useMemo } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { Map, MapMarker, Polygon } from "react-kakao-maps-sdk";
 import debounce from "lodash/debounce";
 
 import searchIcon from "./assets/searchIcon.svg";
@@ -148,6 +148,24 @@ const MapPage = () => {
     { lat: 37.093138600000245, lng: 127.5414699539373 },
     { lat: 37.2807273000005, lng: 127.43553585393859 },
     { lat: 37.28208689999804, lng: 127.43195085393404 },
+  ];
+
+  const path = [
+    { lat: 33.45086654081833, lng: 126.56906858718982 },
+    { lat: 33.45010890948828, lng: 126.56898629127468 },
+    { lat: 33.44979857909499, lng: 126.57049357211622 },
+    { lat: 33.450137483918496, lng: 126.57202991943016 },
+    { lat: 33.450706188506054, lng: 126.57223147947938 },
+    { lat: 33.45164068091554, lng: 126.571312669315 },
+  ];
+
+  const hole = [
+    { lat: 33.4506262491095, lng: 126.56997323165163 },
+    { lat: 33.45029422800042, lng: 126.57042659659218 },
+    { lat: 33.45032339792896, lng: 126.5710395101452 },
+    { lat: 33.450622037218295, lng: 126.57136070280123 },
+    { lat: 33.450964416902046, lng: 126.57129448564594 },
+    { lat: 33.4510527150534, lng: 126.5707562770697 },
   ];
 
   const [mapSize, setMapSize] = useState({
@@ -300,6 +318,21 @@ const MapPage = () => {
                 width: "131px",
               },
             }}
+          />
+
+          <Polygon
+            path={[
+              { lat: 37.264503975973994, lng: 127.40052772450024 },
+              { lat: 37.25818520446882, lng: 127.4015718995335 },
+              { lat: 37.27298565848495, lng: 127.38370095068775 },
+              { lat: 37.286659494529545, lng: 127.3958908657164 },
+            ]} //위도 경도를 넣어준다.
+            strokeWeight={2} // 선의 두께입니다
+            strokeColor={"green"} // 선의 색깔입니다
+            strokeOpacity={1} // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+            strokeStyle={"solid"} // 선의 스타일입니다
+            fillColor={"green"} // 채우기 색깔입니다
+            fillOpacity={0.2} // 채우기 불투명도 입니다
           />
         </Map>
         <NowLocation onClick={handleNowLocationClick} />
