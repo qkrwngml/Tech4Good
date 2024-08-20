@@ -25,6 +25,8 @@ const Container = styled.div`
   gap: 1.25rem;
 
   overflow-y: scroll;
+
+  position: relative;
 `;
 
 const AddressContainer = styled.div`
