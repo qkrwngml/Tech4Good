@@ -16,7 +16,7 @@ import Footer from "../../components/footer";
 import Filter from "./components/Filter";
 import NowLocation from "./components/NowLocation";
 import InfoBottom from "./components/BottomSheet/InfoBottom";
-import NoticeBottom from "./components/NoticeBottom";
+import DiscriptionBottom from "./components/BottomSheet/DiscriptionBottom";
 
 const Container = styled.div`
   width: calc(100dvh * 0.48);
@@ -77,6 +77,18 @@ const MapPage = () => {
   };
   const handleInfoBottomClose = () => {
     setInfoBottomVisible(false); // InfoBottom이 닫힐 때 호출됨
+  };
+
+  const [isDiscriptionBottomVisible, setDiscriptionBottomVisible] =
+    useState(false);
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  const handleMarkerClick = (marker) => {
+    setSelectedMarker(marker);
+    setDiscriptionBottomVisible(true);
+  };
+  const handleDiscriptionBottomClose = (marker) => {
+    setSelectedMarker(marker);
+    setDiscriptionBottomVisible(false);
   };
 
   const [location, setLocation] = useState({
@@ -183,6 +195,7 @@ const MapPage = () => {
               src: fireMarker,
               size: imageSize,
             }}
+            onClick={() => handleMarkerClick({ type: "fire", position })}
           />
         ))
       );
@@ -198,6 +211,7 @@ const MapPage = () => {
               src: policeMarker,
               size: imageSize,
             }}
+            onClick={() => handleMarkerClick({ type: "police", position })}
           />
         ))
       );
@@ -213,6 +227,7 @@ const MapPage = () => {
               src: shelterMarker,
               size: imageSize,
             }}
+            onClick={() => handleMarkerClick({ type: "shelter", position })}
           />
         ))
       );
@@ -228,6 +243,7 @@ const MapPage = () => {
               src: housingMarker,
               size: imageSize,
             }}
+            onClick={() => handleMarkerClick({ type: "housing", position })}
           />
         ))
       );
@@ -235,6 +251,7 @@ const MapPage = () => {
 
     return markers;
   };
+
   const updateCenterWhenMapMoved = useMemo(
     () =>
       debounce((map) => {
@@ -290,7 +307,9 @@ const MapPage = () => {
           <img src={level} alt="level" />
         </Level>
         {isInfoBottomVisible && <InfoBottom onClose={handleInfoBottomClose} />}
-        {/* <NoticeBottom/> */}
+        {isDiscriptionBottomVisible && (
+          <DiscriptionBottom onClose={handleDiscriptionBottomClose} />
+        )}
       </MapContainer>
       <Footer navigateTo={navigateTo} />
     </Container>
