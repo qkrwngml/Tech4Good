@@ -15,6 +15,8 @@ import level from "./assets/level.svg";
 import Footer from "../../components/footer";
 import Filter from "./components/Filter";
 import NowLocation from "./components/NowLocation";
+import InfoBottom from "./components/BottomSheet/InfoBottom";
+import NoticeBottom from "./components/NoticeBottom";
 
 const Container = styled.div`
   width: calc(100dvh * 0.48);
@@ -68,6 +70,13 @@ const MapPage = () => {
   const navigate = useNavigate();
   const navigateTo = (path) => {
     navigate(path);
+  };
+  const [isInfoBottomVisible, setInfoBottomVisible] = useState(false);
+  const handleLevelClick = () => {
+    setInfoBottomVisible(true); // 클릭 시 InfoBottom 컴포넌트를 표시
+  };
+  const handleInfoBottomClose = () => {
+    setInfoBottomVisible(false); // InfoBottom이 닫힐 때 호출됨
   };
 
   const [location, setLocation] = useState({
@@ -277,9 +286,11 @@ const MapPage = () => {
           />
         </Map>
         <NowLocation onClick={handleNowLocationClick} />
-        <Level>
+        <Level onClick={handleLevelClick}>
           <img src={level} alt="level" />
         </Level>
+        {isInfoBottomVisible && <InfoBottom onClose={handleInfoBottomClose} />}
+        {/* <NoticeBottom/> */}
       </MapContainer>
       <Footer navigateTo={navigateTo} />
     </Container>

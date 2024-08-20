@@ -3,7 +3,7 @@ import nowLocation from "../assets/nowLocation.svg";
 
 const Container = styled.div`
   position: absolute;
-  top: 70dvh;
+  top: 67dvh;
   right: 0vw;
   z-index: 2;
   cursor: pointer; /* 클릭 가능하게 보이도록 커서 모양 변경 */
