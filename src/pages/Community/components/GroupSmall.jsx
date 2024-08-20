@@ -3,6 +3,9 @@ import CommonSectionHeader from "./CommonSectionHeader";
 import GovernAnnounce from "./GovernAnnounce";
 import CommonMore from "./CommonMore";
 import CommonPostItem from "./CommonPostItem";
+import { ReactComponent as CarIcn } from "../assets/GroupCarIcn.svg";
+import { ReactComponent as HomeIcn } from "../assets/GroupHomeIcn.svg";
+import { ReactComponent as InsIcn } from "../assets/GroupInsIcn.svg";
 
 const Container = styled.div`
   width: calc(100dvh * 0.48);
@@ -10,18 +13,24 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+`;
+
+const ScrollAreaHidden = styled.div`
+  width: 100%;
+  overflow-x: scroll;
+  padding: 1.1rem 1rem;
+
   border-bottom: 1px solid #eaebec;
 `;
 
 const ScrollArea = styled.div`
-  width: 50rem;
+  width: 38rem;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   gap: 0.625rem;
 
-  background-color: yellow;
-
-  overflow: inherit;
+  overflow: scroll;
 `;
 
 const GroupItem = styled.div`
@@ -46,6 +55,8 @@ const GroupTitle = styled.div`
   font-weight: 600;
   line-height: 1.375rem; /* 137.5% */
   letter-spacing: -0.01rem;
+
+  text-align: left;
 `;
 
 const GroupScale = styled.div`
@@ -56,34 +67,49 @@ const GroupScale = styled.div`
   font-weight: 500;
   line-height: 1.25rem; /* 166.667% */
   letter-spacing: -0.0075rem;
+
+  text-align: left;
 `;
 
 const GroupSmall = () => {
   return (
     <Container>
       <CommonSectionHeader type="Group" />
-      <ScrollArea>
-        <GroupItem>
-          {/* Icon */}
-          <GroupTitle>침수 차량 피해자 모임</GroupTitle>
-          <GroupScale>204명</GroupScale>
-        </GroupItem>
-        <GroupItem>
-          {/* Icon */}
-          <GroupTitle>반지하 피해자 모임</GroupTitle>
-          <GroupScale>204명</GroupScale>
-        </GroupItem>
-        <GroupItem>
-          {/* Icon */}
-          <GroupTitle>KB 보험청구 모임</GroupTitle>
-          <GroupScale>204명</GroupScale>
-        </GroupItem>
-        <GroupItem>
-          {/* Icon */}
-          <GroupTitle></GroupTitle>
-          <GroupScale></GroupScale>
-        </GroupItem>
-      </ScrollArea>
+      <ScrollAreaHidden>
+        <ScrollArea>
+          <GroupItem>
+            <CarIcn />
+            <GroupTitle>
+              침수 차량 <br />
+              피해자 모임
+            </GroupTitle>
+            <GroupScale>204명</GroupScale>
+          </GroupItem>
+          <GroupItem>
+            <HomeIcn />
+            <GroupTitle>
+              반지하 <br /> 피해자 모임
+            </GroupTitle>
+            <GroupScale>204명</GroupScale>
+          </GroupItem>
+          <GroupItem>
+            <InsIcn />
+            <GroupTitle>
+              KB 보험청구
+              <br /> 모임
+            </GroupTitle>
+            <GroupScale>204명</GroupScale>
+          </GroupItem>
+          <GroupItem>
+            <HomeIcn />
+            <GroupTitle>
+              농업 피해자
+              <br /> 모임
+            </GroupTitle>
+            <GroupScale>300명</GroupScale>
+          </GroupItem>
+        </ScrollArea>
+      </ScrollAreaHidden>
       <CommonMore type="Group" />
     </Container>
   );

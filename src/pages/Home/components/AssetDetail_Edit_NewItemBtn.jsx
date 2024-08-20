@@ -65,7 +65,7 @@ const AdditionalButton = styled.button`
   opacity: ${(props) => (props.visible ? "1" : "0")};
 `;
 
-const AssetDetail_Edit_NewItemBtn = () => {
+const AssetDetail_Edit_NewItemBtn = ({ type }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
@@ -88,12 +88,21 @@ const AssetDetail_Edit_NewItemBtn = () => {
         자동차 추가
       </AdditionalButton>
       {isClicked === false ? (
-        <FloatingOnButton
-          onClick={() => setIsClicked(!isClicked)}
-          isClicked={isClicked}
-        >
-          <AddBtn /> 추가
-        </FloatingOnButton>
+        type === "Home" ? (
+          <FloatingOnButton
+            onClick={() => setIsClicked(!isClicked)}
+            isClicked={isClicked}
+          >
+            <AddBtn /> 추가
+          </FloatingOnButton>
+        ) : (
+          <FloatingOnButton
+            onClick={() => alert("준비 중인 서비스입니다.")}
+            isClicked={isClicked}
+          >
+            <AddBtn /> 글쓰기
+          </FloatingOnButton>
+        )
       ) : (
         <FloatingOffButton
           onClick={() => setIsClicked(!isClicked)}

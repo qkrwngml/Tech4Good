@@ -3,6 +3,8 @@ import Footer from "../../../components/footer";
 import CommonSectionHeader from "../components/CommonSectionHeader";
 import Common_header from "../components/Common_header";
 import CommonPostItem from "../components/CommonPostItem";
+import Common_filter from "../components/Common_filter";
+import AssetDetail_Edit_NewItemBtn from "../../Home/components/AssetDetail_Edit_NewItemBtn";
 
 const Container = styled.div`
   height: 88.8dvh;
@@ -20,7 +22,7 @@ const NeighborPage = () => {
     <Container className="community_neighbor">
       <Common_header></Common_header>
       <CommonSectionHeader type="Neighbor" />
-      {/* 필터 */}
+      <Common_filter type="Neighbor" />
       <CommonPostItem
         type="Neighbor"
         postType="반지하"
@@ -52,6 +54,7 @@ const NeighborPage = () => {
         content="테슬라 침수됨 .. 어캄 "
       ></CommonPostItem>
       <Footer></Footer>
+      {/* <AssetDetail_Edit_NewItemBtn type="Neighbor" /> */}
     </Container>
   );
 };

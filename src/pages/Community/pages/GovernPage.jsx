@@ -4,6 +4,7 @@ import CommonSectionHeader from "../components/CommonSectionHeader";
 import Common_header from "../components/Common_header";
 import GovernAnnounce from "../components/GovernAnnounce";
 import CommonPostItem from "../components/CommonPostItem";
+import Common_filter from "../components/Common_filter";
 
 const Container = styled.div`
   height: 88.8dvh;
@@ -22,7 +23,7 @@ const GovernPage = () => {
     <Container className="community_govern">
       <Common_header></Common_header>
       <CommonSectionHeader type="Govern"></CommonSectionHeader>
-      {/* 가로 스크롤 필터 */}
+      <Common_filter type="Govern" />
       <GovernAnnounce></GovernAnnounce>
       <CommonPostItem
         type="Govern"

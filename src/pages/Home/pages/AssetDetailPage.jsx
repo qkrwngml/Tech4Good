@@ -61,7 +61,7 @@ const AssetDetailPage = () => {
           ))}
         </AssetsWrapper>
       </MainWrapper>
-      <AssetDetail_Edit_NewItemBtn />
+      <AssetDetail_Edit_NewItemBtn type="Home" />
     </Container>
   );
 };
