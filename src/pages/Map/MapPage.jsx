@@ -1,15 +1,18 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useMemo } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
+import debounce from "lodash/debounce";
 
 import searchIcon from "./assets/searchIcon.svg";
 import fireMarker from "./assets/fireMarker.svg";
 import policeMarker from "./assets/policeMarker.svg";
 import shelterMarker from "./assets/shelterMarker.svg";
 import housingMarker from "./assets/housingMarker.svg";
+
 import Footer from "../../components/footer";
 import Filter from "./components/Filter";
+import NowLocation from "./components/NowLocation";
 
 const Container = styled.div`
   height: 100dvh;
@@ -56,6 +59,11 @@ const MapPage = () => {
     navigate(path);
   };
 
+  const [location, setLocation] = useState({
+    lat: 37.266929899999845,
+    lng: 127.39517975393233,
+  });
+
   const mapRef = useRef(null);
 
   const imageSize = { width: 40, height: 40 };
@@ -67,7 +75,6 @@ const MapPage = () => {
     { lat: 37.57403449999966, lng: 127.00228600000004 },
     { lat: 37.117079500000195, lng: 127.61047215393356 },
   ];
-  const fireOrigin = { x: 10, y: 0 };
 
   const policePositions = [
     { lat: 37.57403449999966, lng: 127.00228600000004 },
@@ -98,7 +105,6 @@ const MapPage = () => {
     { lat: 37.2721225000006, lng: 127.43085245393392 },
     { lat: 37.276178000000364, lng: 127.44436505393398 },
   ];
-  const shelterOrigin = { x: 10, y: 72 };
 
   const housingPositions = [
     { lat: 37.24219380000083, lng: 127.51398155393568 },
@@ -111,16 +117,16 @@ const MapPage = () => {
     { lat: 37.2807273000005, lng: 127.43553585393859 },
     { lat: 37.28208689999804, lng: 127.43195085393404 },
   ];
-  const housingOrigin = { x: 10, y: 72 };
 
   const [mapSize, setMapSize] = useState({
     width: "100%",
-    height: "88.8vh",
+    height: "88.8dvh",
   });
 
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   useEffect(() => {
+    console.log("현위치", location);
     const fireMenu = document.getElementById("fireMenu");
     const policeMenu = document.getElementById("policeMenu");
     const shelterMenu = document.getElementById("shelterMenu");
@@ -209,6 +215,26 @@ const MapPage = () => {
 
     return markers;
   };
+  const updateCenterWhenMapMoved = useMemo(
+    () =>
+      debounce((map) => {
+        // 지도 중심 좌표 가져오기
+        const center = map.getCenter();
+        setLocation({
+          lat: center.getLat(),
+          lng: center.getLng(),
+        });
+      }, 500),
+    []
+  );
+  const handleNowLocationClick = () => {
+    const currentPosition = {
+      lat: 37.266929899999845,
+      lng: 127.39517975393233,
+    };
+    setLocation(currentPosition);
+    console.log("현위치", location);
+  };
 
   return (
     <Container>
@@ -221,13 +247,15 @@ const MapPage = () => {
           <Filter setSelectedCategory={setSelectedCategory} />
         </MapHeader>
         <Map
-          center={{ lat: 37.5, lng: 127.5 }}
-          level={9}
+          center={location}
+          level={7}
           style={mapSize}
           ref={mapRef}
+          onCenterChanged={updateCenterWhenMapMoved}
         >
           {renderMarkers()}
         </Map>
+        <NowLocation onClick={handleNowLocationClick} />
       </MapContainer>
       <Footer navigateTo={navigateTo} />
     </Container>
