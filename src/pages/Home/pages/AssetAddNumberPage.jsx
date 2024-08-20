@@ -161,6 +161,7 @@ const AssetAddNumberPage = () => {
 
     // 수정한 AssetItem을 추가
     setAsset(updatedAssetArray);
+    alert("저장되었습니다.");
 
     // 폼 초기화
     setPhone("");

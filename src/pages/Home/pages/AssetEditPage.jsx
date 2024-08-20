@@ -267,6 +267,10 @@ const AssetEditPage = () => {
 
   const [numbers, setNumbers] = useState(assetItem.numbers);
 
+  const [addressDetail2, setAddressDetail2] = useState(
+    assetItem.addressDetail2
+  );
+
   // numberIndex: 번호 배열에서의 인덱스
   // 값 : number, index
   // newValue는 번호 또는 관계 string
@@ -294,6 +298,7 @@ const AssetEditPage = () => {
       if (Number(item.assetkey) === Number(assetKey.assetKey)) {
         return {
           ...item,
+          addressDetail2: addressDetail2, // 상세주소 수정시 반영
           numbers: numbers, // numbers 배열에 수정된 번호 객체 추가
           // 수정된 주소도 필요!!!
         };
@@ -317,13 +322,17 @@ const AssetEditPage = () => {
           <MapWrapper src={MapExample}></MapWrapper>
           <AddressDetailWrapper>
             <AddressDetailTextWrapper>
-              <AddressDetailText>{assetItem.address}</AddressDetailText>
+              <AddressDetailText value="">
+                {assetItem.address}
+              </AddressDetailText>
               <AddressDetailText type="detail">
                 {assetItem.addressDetail1}
               </AddressDetailText>
             </AddressDetailTextWrapper>
             <AddressDetailInput>
-              <TextArea placeholder={assetItem.addressDetail2}></TextArea>
+              <TextArea onChange={(e) => setAddressDetail2(e.target.value)}>
+                {addressDetail2}
+              </TextArea>
             </AddressDetailInput>
             <AddressTypeWrapper>
               <AddressTypeItem
