@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as BackBtn } from "../assets/Back.svg";
 import { useNavigate } from "react-router-dom";
+import { editState } from "../../../Recoil";
+import { useRecoilValue } from "recoil";
 
 const Container = styled.div`
   display: flex;
@@ -36,25 +38,20 @@ const EditBtn = styled.div`
   letter-spacing: -0.00875rem;
 
   cursor: pointer;
-
-  ${(props) =>
-    props.editOnClick === undefined
-      ? css`
-          visibility: hidden;
-        `
-      : css``}
 `;
 
 const Common_AssetHeader = ({ header_title, editOnClick }) => {
   const navigate = useNavigate();
+
+  const edit = useRecoilValue(editState);
   return (
     <Container>
       <BackBtnWrapper onClick={() => navigate("/")}>
         <BackBtn />
       </BackBtnWrapper>
       <Title>{header_title}</Title>
-      <EditBtn editOnClick={editOnClick} onClick={() => editOnClick()}>
-        편집
+      <EditBtn onClick={() => editOnClick()}>
+        {edit === true ? "완료" : "편집"}
       </EditBtn>
     </Container>
   );

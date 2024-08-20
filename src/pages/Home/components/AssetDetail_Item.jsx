@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Common_MyAsset_single from "../components/Common_MyAsset_single";
+import { editState } from "../../../Recoil";
+import { useRecoilValue } from "recoil";
 
 const Container = styled.div`
   display: flex;
@@ -43,6 +45,12 @@ const AddressWrapper = styled.div`
   letter-spacing: -0.00875rem;
 `;
 
+const BtnsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+`;
+
 const Horizon = styled.div`
   margin-left: 1.5rem;
   height: 0.0625rem;
@@ -68,29 +76,61 @@ const Number = styled.div`
   line-height: 1.25rem; /* 166.667% */
   letter-spacing: -0.0075rem;
 `;
-// type,
-//   assetTitle,
-//   rain,
-//   grade,
-//   dangerGrade,
 
-// 편집 화면인지 여부를 props로 받아야 함
-// assetState에 주소, 번호 배열을 추가해야 함
+const Btn = styled.div`
+  cursor: pointer;
+
+  display: flex;
+  padding: 0.25rem 0.6875rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+
+  border-radius: 6.25rem;
+  border: 1px solid #dbdcdf;
+
+  color: #5a5c63;
+
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.25rem; /* 166.667% */
+  letter-spacing: -0.0075rem;
+`;
 
 // 하나의 자산 아이템 전체
 const AssetDetail_Item = (props) => {
+  const numbers = props.numbers;
+
+  const edit = useRecoilValue(editState);
+
   return (
     <Container>
       <GradeTotalWrapper>
         <Common_MyAsset_single {...props}></Common_MyAsset_single>
       </GradeTotalWrapper>
       <InfoWrapper>
-        <AddressWrapper>서울시 종로구 38 수호빌라 105동 B105호</AddressWrapper>
-        <Horizon></Horizon>
+        <AddressWrapper>{props.address}</AddressWrapper>
+        {props.type != "Car" ? <Horizon></Horizon> : <></>}
         <NumbersWrapper>
-          <Number>남편 010-2342-5256</Number>
+          {numbers != null ? (
+            numbers.map((item) => (
+              <Number>
+                {item.index} {item.number}
+              </Number>
+            ))
+          ) : (
+            <></>
+          )}
         </NumbersWrapper>
       </InfoWrapper>
+      {edit === true ? (
+        <BtnsWrapper>
+          <Btn>수정</Btn>
+          <Btn>삭제</Btn>
+        </BtnsWrapper>
+      ) : (
+        <></>
+      )}
     </Container>
   );
 };

@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Common_AssetHeader from "../components/Common_AssetHeader";
 import AssetDetail_Item from "../components/AssetDetail_Item";
 import { useRecoilState } from "recoil";
-import { assetState } from "../../../Recoil";
+import { assetState, editState } from "../../../Recoil";
+import React from "react";
 
 const Container = styled.div`
   width: calc(100dvh * 0.48);
@@ -32,15 +33,21 @@ const AssetsWrapper = styled.div`
 `;
 
 const AssetDetailPage = () => {
-  const handleEdit = () => {};
-
   const [assets, setAsset] = useRecoilState(assetState);
+
+  const [edit, setEdit] = useRecoilState(editState);
+
+  const handleEdit = () => {
+    setEdit(!edit);
+  };
 
   return (
     <Container className="assetDetail">
       <Common_AssetHeader
         header_title={"내 집  · 회사 ·  자동차"}
-        editOnClick={handleEdit}
+        editOnClick={() => {
+          handleEdit();
+        }}
       ></Common_AssetHeader>
       <MainWrapper>
         {/* 자산 나열 */}
