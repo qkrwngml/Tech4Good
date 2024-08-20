@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 
 import searchIcon from "./assets/searchIcon.svg";
+import fireMarker from "./assets/fireMarker.svg";
+import policeMarker from "./assets/policeMarker.svg";
+import shelterMarker from "./assets/shelterMarker.svg";
+import housingMarker from "./assets/housingMarker.svg";
 import Footer from "../../components/footer";
 import Filter from "./components/Filter";
 
@@ -54,10 +58,7 @@ const MapPage = () => {
 
   const mapRef = useRef(null);
 
-  const markerImageSrc =
-    "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/category.png";
-  const imageSize = { width: 22, height: 26 };
-  const spriteSize = { width: 36, height: 98 };
+  const imageSize = { width: 40, height: 40 };
 
   const firePositions = [
     { lat: 37.28204470000011, lng: 127.42727205393246 },
@@ -84,7 +85,6 @@ const MapPage = () => {
     { lat: 37.28956540000044, lng: 127.45109355393306 },
     { lat: 37.28169770000055, lng: 127.43749915393254 },
   ];
-  const policeOrigin = { x: 10, y: 36 };
 
   const shelterPositions = [
     { lat: 37.57403449999966, lng: 127.00228600000004 },
@@ -127,10 +127,11 @@ const MapPage = () => {
     const housingMenu = document.getElementById("housingMenu");
 
     if (selectedCategory === "all") {
-      fireMenu.className = "menu_selected";
-      policeMenu.className = "menu_selected";
-      shelterMenu.className = "menu_selected";
-      housingMenu.className = "menu_selected";
+      //css를 위해 주석처리
+      // fireMenu.className = "menu_selected";
+      // policeMenu.className = "menu_selected";
+      // shelterMenu.className = "menu_selected";
+      // housingMenu.className = "menu_selected";
     } else {
       fireMenu.className =
         selectedCategory === "fire" ? "menu_selected" : "none_selected";
@@ -153,13 +154,8 @@ const MapPage = () => {
             key={`fire-${index}`}
             position={position}
             image={{
-              src: markerImageSrc,
+              src: fireMarker,
               size: imageSize,
-              options: {
-                spriteSize,
-                spriteOrigin: fireOrigin,
-                offset: { x: 11, y: 26 },
-              },
             }}
           />
         ))
@@ -173,13 +169,8 @@ const MapPage = () => {
             key={`police-${index}`}
             position={position}
             image={{
-              src: markerImageSrc,
+              src: policeMarker,
               size: imageSize,
-              options: {
-                spriteSize,
-                spriteOrigin: policeOrigin,
-                offset: { x: 11, y: 26 },
-              },
             }}
           />
         ))
@@ -193,13 +184,8 @@ const MapPage = () => {
             key={`shelter-${index}`}
             position={position}
             image={{
-              src: markerImageSrc,
+              src: shelterMarker,
               size: imageSize,
-              options: {
-                spriteSize,
-                spriteOrigin: shelterOrigin,
-                offset: { x: 11, y: 26 },
-              },
             }}
           />
         ))
@@ -213,13 +199,8 @@ const MapPage = () => {
             key={`housing-${index}`}
             position={position}
             image={{
-              src: markerImageSrc,
+              src: housingMarker,
               size: imageSize,
-              options: {
-                spriteSize,
-                spriteOrigin: housingOrigin,
-                offset: { x: 11, y: 26 },
-              },
             }}
           />
         ))
