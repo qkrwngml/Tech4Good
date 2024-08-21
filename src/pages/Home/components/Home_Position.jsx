@@ -103,7 +103,7 @@ const Home_Position = () => {
         </WeatherContent>
         <DangerGradeWrapper>
           <Danger_rain></Danger_rain>
-          <WeatherSpan>0.22m</WeatherSpan>
+          <WeatherSpan>0.22mm</WeatherSpan>
           <WeatherSpan>|</WeatherSpan>
           <WeatherSpan>1등급</WeatherSpan>
           <DangerGrade state={"safe"}></DangerGrade>

@@ -24,7 +24,7 @@ const Common_GradeTotal = ({ rain, grade, dangerGrade }) => {
         <>
           {" "}
           <Danger_rain></Danger_rain>
-          <WeatherSpan>{rain}m</WeatherSpan>
+          <WeatherSpan>{rain}mm</WeatherSpan>
           <WeatherSpan>|</WeatherSpan>
           <WeatherSpan>{grade}등급</WeatherSpan>
         </>

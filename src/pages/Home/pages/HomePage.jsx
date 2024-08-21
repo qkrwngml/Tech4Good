@@ -31,6 +31,21 @@ const Container = styled.div`
 
   overflow-y: scroll;
   padding-bottom: 100px;
+
+  #animation {
+    /* 부드러운 깜빡이 애니메이션 추가 */
+    animation: fadeInOut 2s infinite;
+
+    @keyframes fadeInOut {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+  }
 `;
 
 // footer을 제외한 부분을 차지, scroll 가능
@@ -175,19 +190,20 @@ const HomePage = () => {
           {/* 내 자산 관리 탭 */}
           <Home_MyAsset></Home_MyAsset>
           {/* 대처 가이드/ 긴급 신고/ 비상 연락 */}
-          <EmergencyBtn
-            onClick={() => {
-              alert("준비 중인 서비스입니다.");
-            }}
-          >
+          <EmergencyBtn>
             <EmergencyText
+              id="animation"
               onClick={() => {
                 navigate("/total/guideLine");
               }}
             >
               대처 가이드
             </EmergencyText>
-            <EmergencyText onClick={() => alert("준비 중인 서비스입니다.")}>
+            <EmergencyText
+              onClick={() => {
+                alert("준비 중인 서비스입니다.");
+              }}
+            >
               긴급 신고
             </EmergencyText>
             <EmergencyText onClick={() => alert("준비 중인 서비스입니다.")}>
@@ -200,7 +216,10 @@ const HomePage = () => {
               alert("준비 중인 서비스입니다.");
             }}
           >
-            <FundsTitleWrapper onClick={() => alert("준비 중인 서비스입니다.")}r>
+            <FundsTitleWrapper
+              onClick={() => alert("준비 중인 서비스입니다.")}
+              r
+            >
               <BagIcn />
               수해 피해 정부 지원금 신청하기
             </FundsTitleWrapper>
