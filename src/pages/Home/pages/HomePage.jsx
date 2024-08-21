@@ -160,7 +160,7 @@ const HomePage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setAlert(true);
-    }, 30000);
+    }, 3000); //3초
 
     return () => clearTimeout(timer);
   }, []);
