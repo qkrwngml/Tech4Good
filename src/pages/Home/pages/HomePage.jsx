@@ -26,6 +26,7 @@ const Container = styled.div`
     margin: 0 auto;
   }
 
+  /* 스크롤바 숨기기 */
   &::-webkit-scrollbar {
     display: none;
   }
@@ -155,14 +156,13 @@ const FilterContainer = styled.div`
 
 const HomePage = () => {
   const [filter, setFilter] = useState(0);
-
-  const [emer, setEmer] = useRecoilState(emergencyState);
+  const [alert, setAlert] = useState(false);
 
   // 렌더링 후 3초 뒤에 알람이 옴
   useEffect(() => {
-    if (emer === false) {
+    if (alert === false) {
       const timer = setTimeout(() => {
-        setEmer(true);
+        setAlert(true);
       }, 3000); //3초
 
       return () => clearTimeout(timer);
@@ -202,7 +202,7 @@ const HomePage = () => {
           {/* 내 현 위치와 날씨, 위험 등급 */}
           <Home_Position></Home_Position>
           {/* 안전 문자 */}
-          {emer === true ? (
+          {alert === true ? (
             <Home_Emergency></Home_Emergency>
           ) : (
             <Home_NotEmergency></Home_NotEmergency>
