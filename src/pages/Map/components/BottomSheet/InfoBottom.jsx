@@ -54,7 +54,7 @@ const Button = styled.button`
   background: ${(props) => (props.active ? "#5A5C63" : "#fff")};
   color: ${(props) => (props.active ? "#fff" : "#333")};
   border: ${(props) => (props.active ? "none" : "1px solid #ddd")};
-  width: ${(props) => (props.active ? "84px" : "70px")};
+  width: ${(props) => (props.active ? "90px" : "70px")};
   height: 33px;
   display: flex;
   justify-content: center;

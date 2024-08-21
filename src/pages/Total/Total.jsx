@@ -137,7 +137,7 @@ const Total = () => {
       <Wrapper>
         <Mypage onClick={() => alert("준비 중인 서비스입니다.")}>
           <img src={profile} alt="profile" />
-          <span>내정보</span>
+          <span>내 정보</span>
           <img src={arrow} alt="arrow" id="arrow" />
         </Mypage>
         <SettingWrapper>
