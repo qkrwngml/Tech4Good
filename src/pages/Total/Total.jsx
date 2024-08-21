@@ -128,7 +128,6 @@ const ContentWrapper = styled.div`
     cursor: pointer;
   }
 `;
-
 const ItemWithAnimation = styled.div`
   display: flex;
   justify-content: center;
@@ -136,20 +135,19 @@ const ItemWithAnimation = styled.div`
   cursor: pointer;
 
   /* 애니메이션 */
-  animation: pulse 2s infinite;
-  cursor: pointer;
+  animation: pulse 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
 
   /* 클릭 시 스타일 */
   &:active {
-    transform: scale(0.95);
+    transform: scale(0.85);
   }
 
   img {
-    transition: transform 0.2s;
+    transition: transform 0.3s ease-in-out;
   }
 
   &:hover img {
-    transform: scale(1.1);
+    transform: scale(1.2) rotate(5deg);
   }
 
   @keyframes pulse {
@@ -157,7 +155,7 @@ const ItemWithAnimation = styled.div`
       transform: scale(1);
     }
     50% {
-      transform: scale(1.15);
+      transform: scale(1.25);
     }
     100% {
       transform: scale(1);
