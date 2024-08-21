@@ -53,7 +53,7 @@ const GuideLine_Guides = () => {
 
   return (
     <Counter>
-      <Post onClick={() => navigate("/guideLineAct")}>
+      <Post onClick={() => navigate("/total/guideLineAct")}>
         <Title>취약지역 거주자</Title>
         <Detail>행정안전부 | 조회 500</Detail>
       </Post>

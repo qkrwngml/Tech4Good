@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   // 모바일 웹 환경 구축
-  .mainContainer, .total, .map, .home, .community, .assetDetail, .assetEdit, .assetAddNumber, .communityGovern, .community_govern, .community_neighbor, .guideLinePage{
+  .mainContainer, .total, .map, .home, .community, .assetDetail, .assetEdit, .assetAddNumber, .communityGovern, .community_govern, .community_neighbor, .guideLinePage, .guideLineAct{
   margin-left: auto;
   margin-right: auto;
 }
