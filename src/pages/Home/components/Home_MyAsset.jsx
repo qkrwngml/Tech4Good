@@ -56,6 +56,33 @@ const AssetManageTitle = styled.div`
   font-weight: 500;
   line-height: 1.4375rem; /* 164.286% */
   letter-spacing: -0.00875rem;
+
+  /* 부드러운 깜빡이 애니메이션 추가 */
+  animation: fadeInOut 2s infinite;
+
+  @keyframes fadeInOut {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+`;
+
+const AnimatedManageIcn = styled(ManageIcn)`
+  animation: fadeInOut 2s infinite;
+
+  @keyframes fadeInOut {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
 `;
 
 const Home_MyAsset = () => {
@@ -79,7 +106,7 @@ const Home_MyAsset = () => {
         }}
       >
         <AssetManageTitle>내 집 · 회사 · 자동차 관리하기</AssetManageTitle>
-        <ManageIcn></ManageIcn>
+        <AnimatedManageIcn></AnimatedManageIcn>
       </AssetManage>
     </Container>
   );
