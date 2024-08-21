@@ -25,6 +25,8 @@ const Container = styled.div`
   gap: 1.25rem;
 
   overflow-y: scroll;
+
+  position: relative;
 `;
 
 const AddressContainer = styled.div`
@@ -241,7 +243,7 @@ const EditDoneBtn = styled.div`
   gap: 0.1875rem;
 
   border-radius: 0.875rem;
-  background: #dbdcdf;
+  background: #476de0;
 
   color: #fff;
   font-size: 1rem;
@@ -265,6 +267,50 @@ const AssetEditPage = () => {
 
   const [danger, setDanger] = useState(1);
 
+  const [numbers, setNumbers] = useState(assetItem.numbers);
+
+  const [addressDetail2, setAddressDetail2] = useState(
+    assetItem.addressDetail2
+  );
+
+  // numberIndex: 번호 배열에서의 인덱스
+  // 값 : number, index
+  // newValue는 번호 또는 관계 string
+  const handleInputChange = ({ numberIndex, number, index }) => {
+    const numberItem = numbers.find(
+      (item) => Number(item.numberkey) === Number(numberIndex)
+    );
+
+    const newNumberItem = {
+      ...numberItem,
+      ["number"]: number,
+      ["index"]: index,
+    };
+
+    const newNumbers = numbers.map((item) =>
+      Number(item.numberkey) === Number(numberIndex) ? newNumberItem : item
+    );
+
+    setNumbers(newNumbers);
+  };
+
+  const handleSubmit = () => {
+    // numbers 배열을 알맞은 asset 객체에 넣어줄 거임
+    const updatedAssetArray = asset.map((item) => {
+      if (Number(item.assetkey) === Number(assetKey.assetKey)) {
+        return {
+          ...item,
+          addressDetail2: addressDetail2, // 상세주소 수정시 반영
+          numbers: numbers, // numbers 배열에 수정된 번호 객체 추가
+          // 수정된 주소도 필요!!!
+        };
+      } else return item;
+    });
+
+    // 수정한 AssetItem을 추가
+    setAsset(updatedAssetArray);
+  };
+
   if (assetItem != undefined) {
     return (
       <Container className="assetEdit">
@@ -275,16 +321,23 @@ const AssetEditPage = () => {
         ></Common_AssetHeader>
         {/* 장소 수정 Container */}
         <AddressContainer>
-          <MapWrapper src={MapExample}></MapWrapper>
+          <MapWrapper
+            src={MapExample}
+            onClick={() => alert("준비 중인 서비스입니다.")}
+          ></MapWrapper>
           <AddressDetailWrapper>
             <AddressDetailTextWrapper>
-              <AddressDetailText>{assetItem.address}</AddressDetailText>
+              <AddressDetailText value="">
+                {assetItem.address}
+              </AddressDetailText>
               <AddressDetailText type="detail">
                 {assetItem.addressDetail1}
               </AddressDetailText>
             </AddressDetailTextWrapper>
             <AddressDetailInput>
-              <TextArea placeholder={assetItem.addressDetail2}></TextArea>
+              <TextArea onChange={(e) => setAddressDetail2(e.target.value)}>
+                {addressDetail2}
+              </TextArea>
             </AddressDetailInput>
             <AddressTypeWrapper>
               <AddressTypeItem
@@ -361,6 +414,7 @@ const AssetEditPage = () => {
             <AssetDetail_Edit_NumberItem
               {...item}
               numberkey={item.numberkey}
+              handleInputChange={handleInputChange}
             ></AssetDetail_Edit_NumberItem>
           ))}
           {/* Numbers 배열 map => 전화번호 아이템 띄우고 */}
@@ -377,7 +431,14 @@ const AssetEditPage = () => {
         {/* 저장하기 버튼 */}
         <EditDoneWrapper>
           {" "}
-          <EditDoneBtn>저장하기</EditDoneBtn>
+          <EditDoneBtn
+            onClick={() => {
+              handleSubmit();
+              alert("저장되었습니다.");
+            }}
+          >
+            저장하기
+          </EditDoneBtn>
         </EditDoneWrapper>
       </Container>
     );

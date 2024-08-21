@@ -4,6 +4,7 @@ import AssetDetail_Item from "../components/AssetDetail_Item";
 import { useRecoilState } from "recoil";
 import { assetState, editState } from "../../../Recoil";
 import React from "react";
+import AssetDetail_Edit_NewItemBtn from "../components/AssetDetail_Edit_NewItemBtn";
 
 const Container = styled.div`
   width: calc(100dvh * 0.48);
@@ -11,6 +12,8 @@ const Container = styled.div`
   background-color: #eff0f7;
 
   overflow-y: scroll;
+
+  position: relative;
 `;
 
 const MainWrapper = styled.div`
@@ -58,6 +61,7 @@ const AssetDetailPage = () => {
           ))}
         </AssetsWrapper>
       </MainWrapper>
+      <AssetDetail_Edit_NewItemBtn type="Home" />
     </Container>
   );
 };

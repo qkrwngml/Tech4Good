@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -57,17 +58,46 @@ const HorizonDiv = styled.div`
   background-color: #eaebec;
 `;
 
+// state는 부모 컴포넌트에서 관리, 저장하기 버튼 누르면 수정된 값이 asset에 저장될 것임.
 const AssetDetail_Edit_NumberItem = (assetItem) => {
-  console.log(assetItem);
+  // 변할 때마다 handleInputChange 함수 호출
+
+  // 초기 state 설정
+  const [numberItem, setNumberItem] = useState({
+    numberIndex: assetItem.numberkey,
+    number: assetItem.number,
+    index: assetItem.index,
+  });
+
+  const onChange = (type, e) => {
+    setNumberItem((prevItem) => ({
+      ...prevItem,
+      [type]: e.target.value, // 'type'을 키로 사용하여 상태 업데이트
+    }));
+
+    assetItem.handleInputChange(numberItem);
+  };
+
+  useEffect(() => {
+    // numberItem 상태가 변경될 때마다 handleInputChange 호출
+    assetItem.handleInputChange(numberItem);
+  }, [numberItem]);
+
   return (
     <Container>
       <Form>
         <Title>연락처 {assetItem.numberkey}</Title>
-        <Input value={assetItem.number}></Input>
+        <Input
+          value={numberItem.number}
+          onChange={(e) => onChange("number", e)}
+        ></Input>
       </Form>
       <Form>
         <Title>관계 {assetItem.numberkey}</Title>
-        <Input value={assetItem.index}></Input>
+        <Input
+          value={numberItem.index}
+          onChange={(e) => onChange("index", e)}
+        ></Input>
       </Form>
       <HorizonDiv></HorizonDiv>
     </Container>
