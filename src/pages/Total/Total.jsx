@@ -128,6 +128,44 @@ const ContentWrapper = styled.div`
   }
 `;
 
+const ItemWithAnimation = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 58px;
+  gap: 8px;
+  cursor: pointer;
+
+  /* 애니메이션 */
+  animation: pulse 2s infinite;
+  cursor: pointer;
+
+  /* 클릭 시 스타일 */
+  &:active {
+    transform: scale(0.95);
+  }
+
+  img {
+    transition: transform 0.2s;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+`;
+
 const ProductRecommender = styled.div``;
 
 const Total = () => {
@@ -164,7 +202,6 @@ const Total = () => {
           </Title>
           <ContentWrapper>
             <div
-              style={{ cursor: "pointer" }}
               onClick={() => {
                 navigate("/total/guideLine");
               }}

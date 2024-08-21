@@ -8,7 +8,7 @@ import { ReactComponent as Place } from "../assets/AddPlace.svg";
 import { ReactComponent as Car } from "../assets/AddCar.svg";
 
 const FloatingButtonContainer = styled.div`
-  position: fixed;
+  position: absolute;
   bottom: 5vh;
   right: 2vw;
   display: flex;
