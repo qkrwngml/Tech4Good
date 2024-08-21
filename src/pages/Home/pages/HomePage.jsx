@@ -11,6 +11,7 @@ import Common_Filter from "../components/Common_Filter";
 import { useCallback } from "react";
 import Home_InsuranceList from "../components/Home_InsuranceList";
 import { useNavigate } from "react-router-dom";
+import Home_NotEmergency from "../components/Home_NotEmergency";
 
 const Container = styled.div`
   -ms-overflow-style: none;
@@ -153,6 +154,17 @@ const FilterContainer = styled.div`
 
 const HomePage = () => {
   const [filter, setFilter] = useState(0);
+  const [alert, setAlert] = useState(false);
+
+  // 렌더링 후 3초 뒤에 알람이 옴
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAlert(true);
+    }, 30000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const navigate = useNavigate();
 
   const fetchFilter = useCallback((filter_num) => {
@@ -186,7 +198,11 @@ const HomePage = () => {
           {/* 내 현 위치와 날씨, 위험 등급 */}
           <Home_Position></Home_Position>
           {/* 안전 문자 */}
-          <Home_Emergency></Home_Emergency>
+          {alert === true ? (
+            <Home_Emergency></Home_Emergency>
+          ) : (
+            <Home_NotEmergency></Home_NotEmergency>
+          )}
           {/* 내 자산 관리 탭 */}
           <Home_MyAsset></Home_MyAsset>
           {/* 대처 가이드/ 긴급 신고/ 비상 연락 */}
