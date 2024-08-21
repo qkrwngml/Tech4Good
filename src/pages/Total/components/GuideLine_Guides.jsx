@@ -20,6 +20,37 @@ const Post = styled.div`
   cursor: pointer;
 `;
 
+const PostWithAnimation = styled(Post)`
+  /* 애니메이션 */
+  animation: pulse 2s infinite;
+  cursor: pointer;
+
+  /* 클릭 시 스타일 */
+  &:active {
+    transform: scale(0.95);
+  }
+
+  img {
+    transition: transform 0.2s;
+  }
+
+  &:hover img {
+    transform: scale(1.1);
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.04);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+`;
+
 const Title = styled.div`
   text-align: left;
   align-self: stretch;
@@ -53,10 +84,10 @@ const GuideLine_Guides = () => {
 
   return (
     <Counter>
-      <Post onClick={() => navigate("/total/guideLineAct")}>
+      <PostWithAnimation onClick={() => navigate("/total/guideLineAct")}>
         <Title>취약지역 거주자</Title>
         <Detail>행정안전부 | 조회 500</Detail>
-      </Post>
+      </PostWithAnimation>
       <Horizon />
       <Post onClick={() => alert("준비 중인 서비스입니다.")}>
         <Title>지하공간 거주 및 관리자</Title>

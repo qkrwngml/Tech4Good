@@ -125,6 +125,7 @@ const ContentWrapper = styled.div`
     align-items: center;
     height: 58px;
     gap: 8px;
+    cursor: pointer;
   }
 `;
 
@@ -132,8 +133,6 @@ const ItemWithAnimation = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 58px;
-  gap: 8px;
   cursor: pointer;
 
   /* 애니메이션 */
@@ -158,7 +157,7 @@ const ItemWithAnimation = styled.div`
       transform: scale(1);
     }
     50% {
-      transform: scale(1.05);
+      transform: scale(1.15);
     }
     100% {
       transform: scale(1);
@@ -206,8 +205,12 @@ const Total = () => {
                 navigate("/total/guideLine");
               }}
             >
-              <img src={house} alt="house" />
-              <span>거주지</span>
+              <ItemWithAnimation>
+                {" "}
+                <img src={house} alt="house" />
+                <span>거주지</span>
+              </ItemWithAnimation>
+
               <img src={arrow} alt="arrow" id="arrow" />
             </div>
             <div
