@@ -135,27 +135,33 @@ const Total = () => {
   return (
     <Container className="total">
       <Wrapper>
-        <Mypage>
+        <Mypage onClick={() => alert("준비 중인 서비스입니다.")}>
           <img src={profile} alt="profile" />
           <span>내정보</span>
           <img src={arrow} alt="arrow" id="arrow" />
         </Mypage>
         <SettingWrapper>
-          <Setting>
+          <Setting onClick={() => alert("준비 중인 서비스입니다.")}>
             <img src={setting} alt="setting" />
             <span>설정</span>
           </Setting>
-          <Setting>
+          <Setting onClick={() => alert("준비 중인 서비스입니다.")}>
             <img src={notice} alt="notice" />
             <span>FAQ</span>
           </Setting>
-          <Setting>
+          <Setting onClick={() => alert("준비 중인 서비스입니다.")}>
             <img src={pronounce} alt="pronounce" />
             <span>고객센터</span>
           </Setting>
         </SettingWrapper>
         <FloodSafety>
-          <Title>침수 대비</Title>
+          <Title
+            onClick={() => {
+              navigate("/total/guideLine");
+            }}
+          >
+            침수 대비
+          </Title>
           <ContentWrapper>
             <div
               style={{ cursor: "pointer" }}
@@ -167,22 +173,30 @@ const Total = () => {
               <span>거주지</span>
               <img src={arrow} alt="arrow" id="arrow" />
             </div>
-            <div>
+            <div
+              onClick={() => {
+                navigate("/map");
+              }}
+            >
               <img src={park} alt="park" />
               <span>지하주차장</span>
               <img src={arrow} alt="arrow" id="arrow" />
             </div>
-            <div>
+            <div
+              onClick={() => {
+                navigate("/map");
+              }}
+            >
               <img src={car} alt="car" />
               <span>차량 이용자</span>
               <img src={arrow} alt="arrow" id="arrow" />
             </div>
-            <div>
+            <div onClick={() => alert("준비 중인 서비스입니다.")}>
               <img src={greenHouse} alt="greenHouse" />
               <span>비닐하우스</span>
               <img src={arrow} alt="arrow" id="arrow" />
             </div>
-            <div>
+            <div onClick={() => alert("준비 중인 서비스입니다.")}>
               <img src={ship} alt="ship" />
               <span>어업</span>
               <img src={arrow} alt="arrow" id="arrow" />
@@ -192,22 +206,26 @@ const Total = () => {
         <FloodSafety>
           <Title>침수 피해</Title>
           <ContentWrapper>
-            <div>
+            <div
+              onClick={() => {
+                navigate("/map");
+              }}
+            >
               <img src={shelter} alt="shelter" />
               <span>임시주거시설</span>
               <img src={arrow} alt="arrow" id="arrow" />
             </div>
-            <div>
+            <div onClick={() => alert("준비 중인 서비스입니다.")}>
               <img src={talk} alt="talk" />
               <span>피해 상담</span>
               <img src={arrow} alt="arrow" id="arrow" />
             </div>
-            <div>
+            <div onClick={() => alert("준비 중인 서비스입니다.")}>
               <img src={money} alt="money" />
               <span>정부 지원</span>
               <img src={arrow} alt="arrow" id="arrow" />
             </div>
-            <div>
+            <div onClick={() => alert("준비 중인 서비스입니다.")}>
               <img src={emergency} alt="emergency" />
               <span>긴급 신고</span>
               <img src={arrow} alt="arrow" id="arrow" />
@@ -217,12 +235,12 @@ const Total = () => {
         <FloodSafety>
           <Title>상품</Title>
           <ContentWrapper>
-            <div>
+            <div onClick={() => alert("준비 중인 서비스입니다.")}>
               <img src={insurance} alt="insurance" />
               <span>침수 보험</span>
               <img src={arrow} alt="arrow" id="arrow" />
             </div>
-            <div>
+            <div onClick={() => alert("준비 중인 서비스입니다.")}>
               <img src={ai} alt="ai" />
               <span>AI 예측 모델</span>
               <img src={arrow} alt="arrow" id="arrow" />

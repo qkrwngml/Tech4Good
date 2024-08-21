@@ -14,10 +14,17 @@ const Container = styled.div`
     width: 390px;
     margin: 0 auto;
   }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  /* 스크롤바 숨기기 */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 `;
 
 const ScrollAreaHidden = styled.div`
@@ -35,7 +42,7 @@ const ScrollArea = styled.div`
   align-items: center;
   gap: 0.625rem;
 
-  overflow: scroll;
+  overflow-x: scroll;
 `;
 
 const GroupItem = styled.div`

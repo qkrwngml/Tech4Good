@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import Common_Filter from "../components/Common_Filter";
 import { useCallback } from "react";
 import Home_InsuranceList from "../components/Home_InsuranceList";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   -ms-overflow-style: none;
@@ -137,6 +138,7 @@ const FilterContainer = styled.div`
 
 const HomePage = () => {
   const [filter, setFilter] = useState(0);
+  const navigate = useNavigate();
 
   const fetchFilter = useCallback((filter_num) => {
     setFilter(filter_num);
@@ -178,9 +180,19 @@ const HomePage = () => {
               alert("준비 중인 서비스입니다.");
             }}
           >
-            <EmergencyText>대처 가이드</EmergencyText>
-            <EmergencyText>긴급 신고</EmergencyText>
-            <EmergencyText>비상 연락</EmergencyText>
+            <EmergencyText
+              onClick={() => {
+                navigate("/total/guideLine");
+              }}
+            >
+              대처 가이드
+            </EmergencyText>
+            <EmergencyText onClick={() => alert("준비 중인 서비스입니다.")}>
+              긴급 신고
+            </EmergencyText>
+            <EmergencyText onClick={() => alert("준비 중인 서비스입니다.")}>
+              비상 연락
+            </EmergencyText>
           </EmergencyBtn>
           {/* 지원금 신청 */}
           <FundsRegister
@@ -188,7 +200,7 @@ const HomePage = () => {
               alert("준비 중인 서비스입니다.");
             }}
           >
-            <FundsTitleWrapper>
+            <FundsTitleWrapper onClick={() => alert("준비 중인 서비스입니다.")}r>
               <BagIcn />
               수해 피해 정부 지원금 신청하기
             </FundsTitleWrapper>

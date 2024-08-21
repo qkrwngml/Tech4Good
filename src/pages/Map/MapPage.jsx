@@ -307,7 +307,7 @@ const MapPage = () => {
     <Container>
       <MapContainer>
         <MapHeader>
-          <Search>
+          <Search onClick={() => alert("준비 중인 서비스입니다.")}>
             <img src={searchIcon} alt="search" />
             <input placeholder="위치를 검색해 주세요." />
           </Search>
