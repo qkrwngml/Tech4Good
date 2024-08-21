@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { Map, MapMarker, Polygon } from "react-kakao-maps-sdk";
 import debounce from "lodash/debounce";
+import axios from "axios";
 
 import searchIcon from "./assets/searchIcon.svg";
 import fireMarker from "./assets/fireMarker.svg";
@@ -83,6 +84,45 @@ const MapPage = () => {
   const navigateTo = (path) => {
     navigate(path);
   };
+
+  const riskLevelColors = [
+    null, // index 0은 사용하지 않음 (riskLevel은 1부터 시작한다고 가정)
+    "green", // riskLevel 1
+    "yellow", // riskLevel 2
+    "orange", // riskLevel 3
+    "red", // riskLevel 4
+  ];
+
+  // 연동시작
+  const BACKEND_URL = "http://52.78.49.239:8080";
+  const [error, setError] = useState(null);
+  const [geoBoundary, setGeoBoundary] = useState([]);
+  const [polygons, setPolygons] = useState([]);
+  const accessToken =
+    "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhQG5hdmVyLmNvbSIsImF1dGgiOiJST0xFX1VTRVIiLCJleHAiOjE3MjQyNTg3MzB9.yU_23x9ZDX9RHOCb9H2KZ1uxUG-Cbz9jUZRRVmiHgW4";
+  useEffect(() => {
+    axios
+      .get(`${BACKEND_URL}/api/areas`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        console.log(response.data);
+        const polygonData = response.data.result.content.map((item) => ({
+          location: item.geoBoundary.map(([lat, lng]) => ({ lat, lng })), // 위도/경도 배열을 변환
+          riskLevel: item.riskLevel, // riskLevel 값
+          areaId: item.areaId,
+        }));
+        setPolygons(polygonData); // 폴리곤 데이터를 상태로 설정
+        console.log("폴리곤 데이터:", polygonData);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, [accessToken]);
+
   const [isInfoBottomVisible, setInfoBottomVisible] = useState(false);
   const handleLevelClick = () => {
     setInfoBottomVisible(true); // 클릭 시 InfoBottom 컴포넌트를 표시
@@ -331,7 +371,22 @@ const MapPage = () => {
               },
             }}
           />
-
+          {/* riskLevelColors[riskLevel] */}
+          {polygons.length !== 0 ? (
+            polygons.map((item) => (
+              <Polygon
+                path={item.location} //위도 경도를 넣어준다.
+                strokeWeight={2} // 선의 두께입니다
+                strokeColor={riskLevelColors[item.riskLevel]} // 선의 색깔입니다
+                strokeOpacity={1} // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+                strokeStyle={"solid"} // 선의 스타일입니다
+                fillColor={riskLevelColors[item.riskLevel]} // 채우기 색깔입니다
+                fillOpacity={0.2} // 채우기 불투명도 입니다
+              />
+            ))
+          ) : (
+            <></>
+          )}
           <Polygon
             path={[
               { lat: 37.264503975973994, lng: 127.40052772450024 },
@@ -340,10 +395,24 @@ const MapPage = () => {
               { lat: 37.286659494529545, lng: 127.3958908657164 },
             ]} //위도 경도를 넣어준다.
             strokeWeight={2} // 선의 두께입니다
-            strokeColor={"green"} // 선의 색깔입니다
+            strokeColor={"red"} // 선의 색깔입니다
             strokeOpacity={1} // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
             strokeStyle={"solid"} // 선의 스타일입니다
-            fillColor={"green"} // 채우기 색깔입니다
+            fillColor={"red"} // 채우기 색깔입니다
+            fillOpacity={0.2} // 채우기 불투명도 입니다
+          />
+          <Polygon
+            path={[
+              { lat: 37.270039, lng: 127.4021 },
+              { lat: 37.271428, lng: 127.413836 },
+              { lat: 37.267218, lng: 127.408763 },
+              { lat: 37.263857, lng: 127.409165 },
+            ]} //위도 경도를 넣어준다.
+            strokeWeight={2} // 선의 두께입니다
+            strokeColor={"yellow"} // 선의 색깔입니다
+            strokeOpacity={1} // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+            strokeStyle={"solid"} // 선의 스타일입니다
+            fillColor={"yellow"} // 채우기 색깔입니다
             fillOpacity={0.2} // 채우기 불투명도 입니다
           />
         </Map>
