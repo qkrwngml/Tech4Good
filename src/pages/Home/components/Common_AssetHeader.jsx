@@ -61,7 +61,7 @@ const Common_AssetHeader = ({ header_title, editOnClick, backLink }) => {
   const edit = useRecoilValue(editState);
   return (
     <Container editOnClick={editOnClick}>
-      <BackBtnWrapper onClick={() => navigate(-1)}>
+      <BackBtnWrapper onClick={() => navigate(`${backLink}`)}>
         <BackBtn />
       </BackBtnWrapper>
       <Title>{header_title}</Title>
