@@ -10,12 +10,14 @@ const Container = styled.div`
 
 const BankLogo = styled.img`
   display: flex;
-  width: 2.1vw;
-  height: 2.1vw;
+  width: 30px;
+  height: 30px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.125rem;
+
+  object-fit: cover;
 `;
 
 const Common_Insurance = ({ filterTitle, title, content }) => {
