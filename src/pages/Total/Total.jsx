@@ -1,15 +1,216 @@
 import styled from "styled-components";
 import Footer from "../../components/footer";
 
+import profile from "./assets/profile.svg";
+import arrow from "./assets/arrow.svg";
+import setting from "./assets/setting.svg";
+import notice from "./assets/notice.svg";
+import pronounce from "./assets/pronounce.svg";
+import house from "./assets/house.svg";
+import park from "./assets/park.svg";
+import car from "./assets/car.svg";
+import greenHouse from "./assets/greenHouse.svg";
+import ship from "./assets/ship.svg";
+import shelter from "./assets/shelter.svg";
+import talk from "./assets/talk.svg";
+import money from "./assets/money.svg";
+import emergency from "./assets/emergency.svg";
+import insurance from "./assets/insurance.svg";
+import ai from "./assets/ai.svg";
+
 const Container = styled.div`
   height: 100dvh;
   width: calc(100dvh * 0.48);
+  position: relative;
+
+  #arrow {
+    position: absolute;
+    right: 25px;
+}
+    img { width: 24px;}
+  }
 `;
+
+const Wrapper = styled.div`
+  padding: 20px 16px;
+  background: #eff0f7;
+  overflow: scroll;
+  padding-bottom: 100px;
+`;
+
+const Mypage = styled.div`
+  display: flex;
+  padding: 20px 20px 20px 24px;
+  border-radius: 16px;
+  background: var(--gray-0, #fff);
+  gap: 7px;
+  position: relative;
+  color: var(--gray-gray-850, #46474c);
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px; /* 162.5% */
+  letter-spacing: -0.16px;
+`;
+
+const SettingWrapper = styled.div`
+  height: 86px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 16px;
+  background: var(--gray-0, #fff);
+  margin-top: 12px;
+  padding: 20px 43px;
+  justify-content: space-between;
+`;
+
+const Setting = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 48px;
+  color: var(--gray-gray-800, #5a5c63);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: -0.14px;
+`;
+
+const FloodSafety = styled.div`
+  padding: 20px 24px;
+  border-radius: 20px;
+  background: var(--gray-0, #fff);
+  margin-top: 12px;
+  text-align: left;
+`;
+
+const Title = styled.div`
+  color: var(--gray-gray-750, #70737c);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px; /* 162.5% */
+  letter-spacing: -0.16px;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--gray-gray-850, #46474c);
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px; /* 162.5% */
+  letter-spacing: -0.16px;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 58px;
+    gap: 8px;
+  }
+`;
+
+const ProductRecommender = styled.div``;
 
 const Total = () => {
   return (
     <Container className="total">
-      <div>Total Page</div>
+      <Wrapper>
+        <Mypage>
+          <img src={profile} alt="profile" />
+          <span>내정보</span>
+          <img src={arrow} alt="arrow" id="arrow" />
+        </Mypage>
+        <SettingWrapper>
+          <Setting>
+            <img src={setting} alt="setting" />
+            <span>설정</span>
+          </Setting>
+          <Setting>
+            <img src={notice} alt="notice" />
+            <span>FAQ</span>
+          </Setting>
+          <Setting>
+            <img src={pronounce} alt="pronounce" />
+            <span>고객센터</span>
+          </Setting>
+        </SettingWrapper>
+        <FloodSafety>
+          <Title>침수 대비</Title>
+          <ContentWrapper>
+            <div>
+              <img src={house} alt="house" />
+              <span>거주지</span>
+              <img src={arrow} alt="arrow" id="arrow" />
+            </div>
+            <div>
+              <img src={park} alt="park" />
+              <span>지하주차장</span>
+              <img src={arrow} alt="arrow" id="arrow" />
+            </div>
+            <div>
+              <img src={car} alt="car" />
+              <span>차량 이용자</span>
+              <img src={arrow} alt="arrow" id="arrow" />
+            </div>
+            <div>
+              <img src={greenHouse} alt="greenHouse" />
+              <span>비닐하우스</span>
+              <img src={arrow} alt="arrow" id="arrow" />
+            </div>
+            <div>
+              <img src={ship} alt="ship" />
+              <span>어업</span>
+              <img src={arrow} alt="arrow" id="arrow" />
+            </div>
+          </ContentWrapper>
+        </FloodSafety>
+        <FloodSafety>
+          <Title>침수 피해</Title>
+          <ContentWrapper>
+            <div>
+              <img src={shelter} alt="shelter" />
+              <span>임시주거시설</span>
+              <img src={arrow} alt="arrow" id="arrow" />
+            </div>
+            <div>
+              <img src={talk} alt="talk" />
+              <span>피해 상담</span>
+              <img src={arrow} alt="arrow" id="arrow" />
+            </div>
+            <div>
+              <img src={money} alt="money" />
+              <span>정부 지원</span>
+              <img src={arrow} alt="arrow" id="arrow" />
+            </div>
+            <div>
+              <img src={emergency} alt="emergency" />
+              <span>긴급 신고</span>
+              <img src={arrow} alt="arrow" id="arrow" />
+            </div>
+          </ContentWrapper>
+        </FloodSafety>
+        <FloodSafety>
+          <Title>상품</Title>
+          <ContentWrapper>
+            <div>
+              <img src={insurance} alt="insurance" />
+              <span>침수 보험</span>
+              <img src={arrow} alt="arrow" id="arrow" />
+            </div>
+            <div>
+              <img src={ai} alt="ai" />
+              <span>AI 예측 모델</span>
+              <img src={arrow} alt="arrow" id="arrow" />
+            </div>
+          </ContentWrapper>
+        </FloodSafety>
+      </Wrapper>
+
       <Footer></Footer>
     </Container>
   );

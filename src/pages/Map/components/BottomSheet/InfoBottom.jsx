@@ -109,7 +109,7 @@ const AlertDescription = styled.p`
   text-align: center;
   text-overflow: ellipsis;
   font-family: Pretendard;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
   margin: 0;
   overflow: hidden;
