@@ -12,6 +12,8 @@ import { useCallback } from "react";
 import Home_InsuranceList from "../components/Home_InsuranceList";
 import { useNavigate } from "react-router-dom";
 import Home_NotEmergency from "../components/Home_NotEmergency";
+import { emergencyState } from "../../../Recoil";
+import { useRecoilState } from "recoil";
 
 const Container = styled.div`
   -ms-overflow-style: none;
@@ -154,15 +156,18 @@ const FilterContainer = styled.div`
 
 const HomePage = () => {
   const [filter, setFilter] = useState(0);
-  const [alert, setAlert] = useState(false);
+
+  const [emer, setEmer] = useRecoilState(emergencyState);
 
   // 렌더링 후 3초 뒤에 알람이 옴
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setAlert(true);
-    }, 3000); //3초
+    if (emer === false) {
+      const timer = setTimeout(() => {
+        setEmer(true);
+      }, 3000); //3초
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const navigate = useNavigate();
@@ -198,7 +203,7 @@ const HomePage = () => {
           {/* 내 현 위치와 날씨, 위험 등급 */}
           <Home_Position></Home_Position>
           {/* 안전 문자 */}
-          {alert === true ? (
+          {emer === true ? (
             <Home_Emergency></Home_Emergency>
           ) : (
             <Home_NotEmergency></Home_NotEmergency>
