@@ -19,8 +19,20 @@ import insurance from "./assets/insurance.svg";
 import ai from "./assets/ai.svg";
 
 const Container = styled.div`
-  height: 100dvh;
-  width: calc(100dvh * 0.48);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+    /* 미디어 쿼리 적용 */
+  /* pc화면에서 너비를 390로 고정합니다*/
+  @media (hover: hover) {
+    width: 390px;
+    margin: 0 auto;
+  }
+
+  /* 스크롤바 숨기기 */
+  &::-webkit-scrollbar {
+    display: none;
+  }
   position: relative;
 
   #arrow {
