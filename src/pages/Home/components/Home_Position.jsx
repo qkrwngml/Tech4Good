@@ -89,7 +89,7 @@ const Home_Position = () => {
         >
           내 현재 위치
         </PositionTitle>
-        <PositionContent>서울시 종로구</PositionContent>
+        <PositionContent>이천시 마장면</PositionContent>
       </MyPosition>
       <MyWeather>
         <WeatherContent>

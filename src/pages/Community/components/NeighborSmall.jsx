@@ -20,7 +20,7 @@ const NeighborSmall = () => {
         type="Neighbor"
         postType="반지하"
         title="반지하 침수 경험 있는 사람?"
-        content="종로동 빌라촌 사는데 어제 호우에 침수됐다.. 어떡하냐 우선 집주인이랑 얘기했는데"
+        content="마장면 빌라촌 사는데 어제 호우에 침수됐다.. 어떡하냐 우선 집주인이랑 얘기했는데"
       />
       <CommonPostItem
         type="Neighbor"

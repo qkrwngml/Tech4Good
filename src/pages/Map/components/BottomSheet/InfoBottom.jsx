@@ -214,10 +214,10 @@ const InfoBottom = ({ onClose }) => {
       <EmergencyAlert>
         <AlertTitle>긴급 대피 안내</AlertTitle>
         <AlertSubtitle>
-          [긴급] 종로동 반지하 거주민 긴급 대피 안내
+          [긴급] 마장면 반지하 거주민 긴급 대피 안내
         </AlertSubtitle>
         <AlertDescription>
-          주민 여러분들께. 종로동 반지하 거주민 긴급 대피 안내...
+          주민 여러분들께. 마장면 반지하 거주민 긴급 대피 안내...
         </AlertDescription>
       </EmergencyAlert>
     </Container>

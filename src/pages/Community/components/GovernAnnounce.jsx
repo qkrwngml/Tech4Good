@@ -58,9 +58,9 @@ const GovernAnnounce = () => {
       <Wrapper>
         <IndexWrapper>
           <AlertIcn />
-          구청
+          시청
         </IndexWrapper>
-        <Content>[긴급] 종로동 반지하 거주민 긴급 대피 안내</Content>
+        <Content>[긴급] 이천시 반지하 거주민 긴급 대피 안내</Content>
         <MoreIcn
           style={{ cursor: "pointer" }}
           onClick={() => {

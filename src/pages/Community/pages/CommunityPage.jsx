@@ -5,6 +5,7 @@ import GovernSmall from "../components/GovernSmall";
 import GroupSmall from "../components/GroupSmall";
 import NeighborSmall from "../components/NeighborSmall";
 import CommonSectionHeader from "../components/CommonSectionHeader";
+import "../../../styles/CustomStyle.css";
 
 const Container = styled.div`
   -ms-overflow-style: none;

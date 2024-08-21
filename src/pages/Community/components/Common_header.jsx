@@ -34,7 +34,7 @@ const Common_header = () => {
   return (
     <Container>
       <Place onClick={() => alert("준비 중인 서비스입니다.")}>
-        종로동
+        이천시
         <PlaceDetail />
       </Place>
       <Btns onClick={() => alert("준비 중인 서비스입니다.")}>

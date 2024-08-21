@@ -11,6 +11,8 @@ import AssetEditPage from "./pages/Home/pages/AssetEditPage";
 import AssetAddNumberPage from "./pages/Home/pages/AssetAddNumberPage";
 import GovernPage from "./pages/Community/pages/GovernPage";
 import NeighborPage from "./pages/Community/pages/NeighborPage";
+import GuideLinePage from "./pages/Total/pages/GuideLinePage";
+import GuideLineActPage from "./pages/Total/pages/GuideLineActPage";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/community" element={<CommunityPage></CommunityPage>} />
           <Route path="/map" element={<Map />} />
           <Route path="/total" element={<Total />} />
+          <Route path="/total/guideLine" element={<GuideLinePage />} />
+          <Route path="/total/guideLineAct" element={<GuideLineActPage />} />
           <Route path="/asset_Detail" element={<AssetDetailPage />} />
           <Route
             path="/asset_Detail/edit/:assetKey"

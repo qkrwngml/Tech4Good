@@ -129,7 +129,7 @@ const CommonPostItem = ({ type, postType, title, content }) => {
       {/* Wrapper - title/ content */}
       <FooterWrapper>
         <FooterInfo>
-          <span>종로구청 | </span>
+          <span>이천시청 | </span>
           <span>10분 전 | </span>
           <span>조회 500</span>
         </FooterInfo>

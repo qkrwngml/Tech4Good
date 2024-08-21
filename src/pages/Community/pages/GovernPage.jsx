@@ -25,23 +25,23 @@ const GovernPage = () => {
       <GovernAnnounce></GovernAnnounce>
       <CommonPostItem
         type="Govern"
-        title="[긴급] 종로동 반지하 거주민 긴급 대피 안내"
-        content="주민 여러분들께. 종로동 반지하 거주민 긴급 대피 안내드립니다. 8월 24일 오후 4시"
+        title="[긴급] 마장면 반지하 거주민 긴급 대피 안내"
+        content="주민 여러분들께. 마장면 반지하 거주민 긴급 대피 안내드립니다. 8월 24일 오후 4시"
       ></CommonPostItem>
       <CommonPostItem
         type="Govern"
-        title="[긴급] 종로하천 인근 거주민 긴급 대피 안내"
-        content="주민 여러분. 종로하천 인근 거주 주민 긴급 대피 안내드립니다. 8월 24일 오후 4시"
+        title="[긴급] 마장하천 인근 거주민 긴급 대피 안내"
+        content="주민 여러분. 마장하천 인근 거주 주민 긴급 대피 안내드립니다. 8월 24일 오후 4시"
       ></CommonPostItem>
       <CommonPostItem
         type="Govern"
-        title="[긴급] 종로터널 인근 접근 금지 안내"
-        content="주민 여러분들께. 종로터널 인근 접근 금지 안내드립니다. 8월 24일 오후 4시"
+        title="[긴급] 오천터널 인근 접근 금지 안내"
+        content="주민 여러분들께. 오천터널 인근 접근 금지 안내드립니다. 8월 24일 오후 4시"
       ></CommonPostItem>
       <CommonPostItem
         type="Govern"
-        title="[긴급] 종로동 반지하 거주민 긴급 대피 안내"
-        content="주민 여러분들께. 종로동 반지하 거주민 긴급 대피 안내드립니다. 8월 24일 오후 4시"
+        title="[긴급] 마장면 반지하 거주민 긴급 대피 안내"
+        content="주민 여러분들께. 마장면 반지하 거주민 긴급 대피 안내드립니다. 8월 24일 오후 4시"
       ></CommonPostItem>
       <Footer></Footer>
     </Container>

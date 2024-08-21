@@ -18,8 +18,8 @@ const GovernSmall = () => {
       <GovernAnnounce />
       <CommonPostItem
         type="Govern"
-        title="[긴급] 종로동 반지하 거주민 긴급 대피 안내"
-        content="주민 여러분들께. 종로동 반지하 거주민 긴급 대피 안내드립니다. 8월 24일 오후 4시"
+        title="[긴급] 이천시 반지하 거주민 긴급 대피 안내"
+        content="주민 여러분들께. 이천시 반지하 거주민 긴급 대피 안내드립니다. 8월 24일 오후 4시"
       />
       <CommonMore type="Govern" />
     </Container>
