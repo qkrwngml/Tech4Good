@@ -26,7 +26,6 @@ const Container = styled.div`
     margin: 0 auto;
   }
 
-  /* 스크롤바 숨기기 */
   &::-webkit-scrollbar {
     display: none;
   }
