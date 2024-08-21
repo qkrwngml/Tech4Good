@@ -7,6 +7,21 @@ import CommonPostItem from "../components/CommonPostItem";
 import Common_filter from "../components/Common_filter";
 
 const Container = styled.div`
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  /* 미디어 쿼리 적용 */
+  /* pc화면에서 너비를 390로 고정합니다*/
+  @media (hover: hover) {
+    width: 390px;
+    margin: 0 auto;
+  }
+
+  /* 스크롤바 숨기기 */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   height: 88.8dvh;
 
   overflow-y: scroll;

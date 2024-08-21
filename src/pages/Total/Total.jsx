@@ -17,12 +17,13 @@ import money from "./assets/money.svg";
 import emergency from "./assets/emergency.svg";
 import insurance from "./assets/insurance.svg";
 import ai from "./assets/ai.svg";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   -ms-overflow-style: none;
   scrollbar-width: none;
 
-    /* 미디어 쿼리 적용 */
+  /* 미디어 쿼리 적용 */
   /* pc화면에서 너비를 390로 고정합니다*/
   @media (hover: hover) {
     width: 390px;
@@ -38,8 +39,9 @@ const Container = styled.div`
   #arrow {
     position: absolute;
     right: 25px;
-}
-    img { width: 24px;}
+  }
+  img {
+    width: 24px;
   }
 `;
 
@@ -129,6 +131,7 @@ const ContentWrapper = styled.div`
 const ProductRecommender = styled.div``;
 
 const Total = () => {
+  const navigate = useNavigate();
   return (
     <Container className="total">
       <Wrapper>
@@ -154,7 +157,12 @@ const Total = () => {
         <FloodSafety>
           <Title>침수 대비</Title>
           <ContentWrapper>
-            <div>
+            <div
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                navigate("/total/guideLine");
+              }}
+            >
               <img src={house} alt="house" />
               <span>거주지</span>
               <img src={arrow} alt="arrow" id="arrow" />

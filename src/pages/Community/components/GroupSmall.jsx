@@ -8,6 +8,12 @@ import { ReactComponent as HomeIcn } from "../assets/GroupHomeIcn.svg";
 import { ReactComponent as InsIcn } from "../assets/GroupInsIcn.svg";
 
 const Container = styled.div`
+  /* 미디어 쿼리 적용 */
+  /* pc화면에서 너비를 390로 고정합니다*/
+  @media (hover: hover) {
+    width: 390px;
+    margin: 0 auto;
+  }
 
   display: flex;
   flex-direction: column;
