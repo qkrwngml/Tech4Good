@@ -1,6 +1,16 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { ReactComponent as MoreIcn } from "../assets/GovernAnnounceMore.svg";
 import { useNavigate } from "react-router-dom";
+
+// 깜빡이 애니메이션 정의
+const fadeInOut = keyframes`
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -26,6 +36,12 @@ const BtnWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  ${(props) =>
+    props.type !== "Group" &&
+    css`
+      animation: ${fadeInOut} 2s infinite;
+    `}
 `;
 
 // type: Govern, Group, Neighbor
@@ -34,6 +50,7 @@ const CommonMore = ({ type }) => {
   return (
     <Container>
       <BtnWrapper
+        type={type}
         onClick={
           type === "Group"
             ? () => {
