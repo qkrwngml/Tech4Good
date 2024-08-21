@@ -151,11 +151,11 @@ const DiscriptionBottom = ({ onClose }) => {
         </Where>
       </Content>
       <ButtonWrapper>
-        <Button>
+        <Button onClick={() => alert("준비 중인 서비스입니다.")}>
           <img src={Call} alt="Call" />
           <span>전화걸기</span>
         </Button>
-        <Button>
+        <Button onClick={() => alert("준비 중인 서비스입니다.")}>
           <img src={findMap} alt="findMap" />
           <span>길 안내</span>
         </Button>

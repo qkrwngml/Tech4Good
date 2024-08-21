@@ -46,13 +46,15 @@ const ButtonGroup = styled.div`
   justify-content: space-between;
   gap: 12px;
   margin-top: 20px;
+  overflow-x: auto;
+  width: 330px;
 `;
 
 const Button = styled.button`
   background: ${(props) => (props.active ? "#5A5C63" : "#fff")};
   color: ${(props) => (props.active ? "#fff" : "#333")};
   border: ${(props) => (props.active ? "none" : "1px solid #ddd")};
-  width: ${(props) => (props.active ? "84px" : "49px")};
+  width: ${(props) => (props.active ? "84px" : "70px")};
   height: 33px;
   display: flex;
   justify-content: center;
