@@ -38,7 +38,7 @@ const Container = styled.div`
 
   #arrow {
     position: absolute;
-    right: 25px;
+    right: 35px;
   }
   img {
     width: 24px;
