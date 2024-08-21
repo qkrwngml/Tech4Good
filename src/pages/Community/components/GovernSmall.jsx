@@ -5,7 +5,6 @@ import CommonMore from "./CommonMore";
 import CommonPostItem from "./CommonPostItem";
 
 const Container = styled.div`
-  width: calc(100dvh * 0.48);
 
   display: flex;
   flex-direction: column;

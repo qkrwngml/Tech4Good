@@ -6,6 +6,21 @@ import findMap from "../../assets/findMap.svg";
 import Call from "../../assets/call.svg";
 
 const Container = styled.div`
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  /* 미디어 쿼리 적용 */
+  /* pc화면에서 너비를 390로 고정합니다*/
+  @media (hover: hover) {
+    width: 390px;
+    margin: 0 auto;
+  }
+
+  /* 스크롤바 숨기기 */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  width: 100%;
   padding: 0 24px;
   border-radius: 20px 20px 0px 0px;
   border-top: 1px solid var(--gray-gray-100, #f4f4f5);
@@ -14,7 +29,6 @@ const Container = styled.div`
   background: var(--gray-0, #fff);
   box-shadow: 0px 0px 10px 0px rgba(174, 176, 182, 0.25);
   margin: 0 auto;
-  width: calc(100dvh * 0.48);
   height: 270px;
   border: 1px solid #ddd;
   overflow: hidden;

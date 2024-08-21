@@ -8,7 +8,6 @@ import AssetDetail_Edit_NewItemBtn from "../../Home/components/AssetDetail_Edit_
 
 const Container = styled.div`
   height: 88.8dvh;
-  width: calc(100dvh * 0.48);
 
   overflow-y: scroll;
 

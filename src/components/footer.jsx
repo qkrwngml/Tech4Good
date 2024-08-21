@@ -18,10 +18,23 @@ const Container = styled.div`
   height: 11.2dvh;
   background-color: #fff;
   padding: 1px 0px;
-  width: calc(100dvh * 0.48);
   border-radius: 20px 20px 0 0;
   margin-left: auto;
   margin-right: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  /* 미디어 쿼리 적용 */
+  /* pc화면에서 너비를 390로 고정합니다*/
+  @media (hover: hover) {
+    width: 390px;
+    margin: 0 auto;
+  }
+
+  /* 스크롤바 숨기기 */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const IconTxtWrapper = styled.div`

@@ -8,7 +8,6 @@ import { ReactComponent as HomeIcn } from "../assets/GroupHomeIcn.svg";
 import { ReactComponent as InsIcn } from "../assets/GroupInsIcn.svg";
 
 const Container = styled.div`
-  width: calc(100dvh * 0.48);
 
   display: flex;
   flex-direction: column;

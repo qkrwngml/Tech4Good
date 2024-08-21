@@ -7,8 +7,20 @@ import NeighborSmall from "../components/NeighborSmall";
 import CommonSectionHeader from "../components/CommonSectionHeader";
 
 const Container = styled.div`
-  max-width: calc(100dvh * 0.48);
-  width: 100dvw;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  /* 미디어 쿼리 적용 */
+  /* pc화면에서 너비를 390로 고정합니다*/
+  @media (hover: hover) {
+    width: 390px;
+    margin: 0 auto;
+  }
+
+  /* 스크롤바 숨기기 */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   overflow-y: scroll;
 

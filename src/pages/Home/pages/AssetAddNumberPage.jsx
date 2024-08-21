@@ -7,10 +7,23 @@ import { assetState } from "../../../Recoil";
 
 const Container = styled.div`
   background-color: #ffffff;
-  width: calc(100dvh * 0.48);
   height: 100dvh;
 
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  /* 미디어 쿼리 적용 */
+  /* pc화면에서 너비를 390로 고정합니다*/
+  @media (hover: hover) {
+    width: 390px;
+    margin: 0 auto;
+  }
+
+  /* 스크롤바 숨기기 */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const FormContainer = styled.form`
