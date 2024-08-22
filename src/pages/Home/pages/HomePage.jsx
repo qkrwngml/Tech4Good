@@ -156,18 +156,25 @@ const FilterContainer = styled.div`
 
 const HomePage = () => {
   const [filter, setFilter] = useState(0);
-  const [alert, setAlert] = useState(false);
+  const [alert, setAlert] = useState(() => {
+    // localStorage에서 alert 상태를 불러옴, 없으면 false로 초기화
+    const savedAlert = localStorage.getItem("alert");
+    return savedAlert ? JSON.parse(savedAlert) : false;
+  });
 
   // 렌더링 후 3초 뒤에 알람이 옴
   useEffect(() => {
-    if (alert === false) {
+    if (!alert) {
       const timer = setTimeout(() => {
         setAlert(true);
-      }, 3000); //3초
+        localStorage.setItem("alert", JSON.stringify(true)); // alert 상태를 localStorage에 저장
+      }, 3000); // 3초
 
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [alert]);
+
+  // 나머지 코드...
 
   const navigate = useNavigate();
 
